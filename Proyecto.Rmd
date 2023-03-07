@@ -1,0 +1,71 @@
+---
+title: "Proyect"
+author: "Cristopher Barrios"
+date: "16/2/2023"
+output:
+  pdf_document: default
+  code_folding: hide
+  html_document:
+  word_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+librerias
+```{r}
+library(haven)
+library(stats)
+library(dplyr)
+library(ggplot2)
+```
+
+datos
+```{r}
+M2009 <- read_sav("Matrimonios/Matrimonio2009.sav")
+M2010 <- read_sav("Matrimonios/Matrimonio2010.sav")
+M2011 <- read_sav("Matrimonios/Matrimonio2011.sav")
+M2012 <- read_sav("Matrimonios/Matrimonio2012.sav")
+M2013 <- read_sav("Matrimonios/Matrimonio2013.sav")
+M2014 <- read_sav("Matrimonios/Matrimonio2014.sav")
+M2015 <- read_sav("Matrimonios/Matrimonio2015.sav")
+M2016 <- read_sav("Matrimonios/Matrimonio2016.sav")
+M2017 <- read_sav("Matrimonios/Matrimonio2017.sav")
+M2018 <- read_sav("Matrimonios/Matrimonio2018.sav")
+M2019 <- read_sav("Matrimonios/Matrimonio2019.sav")
+M2020 <- read_sav("Matrimonios/Matrimonio2020.sav")
+M2021 <- read_sav("Matrimonios/Matrimonio2021.sav")
+```
+Nacimiento
+```{r}
+N2009 <- read_sav("Nacimientos/Nacimiento2009.sav")
+N2010 <- read_sav("Nacimientos/Nacimiento2010.sav")
+N2011 <- read_sav("Nacimientos/Nacimiento2011.sav")
+N2012 <- read_sav("Nacimientos/Nacimiento2012.sav")
+N2013 <- read_sav("Nacimientos/Nacimiento2013.sav")
+N2014 <- read_sav("Nacimientos/Nacimiento2014.sav")
+N2015 <- read_sav("Nacimientos/Nacimiento2015.sav")
+N2016 <- read_sav("Nacimientos/Nacimiento2016.sav")
+N2017 <- read_sav("Nacimientos/Nacimiento2017.sav")
+N2018 <- read_sav("Nacimientos/Nacimiento2018.sav")
+N2019 <- read_sav("Nacimientos/Nacimiento2019.sav")
+N2020 <- read_sav("Nacimientos/Nacimiento2020.sav")
+N2021 <- read_sav("Nacimientos/Nacimiento2021.sav")
+```
+Divorcios
+```{r}
+D2009 <- read_sav("Divorcios/Divorcio2009.sav")
+D2010 <- read_sav("Divorcios/Divorcio2010.sav")
+D2011 <- read_sav("Divorcios/Divorcio2011.sav")
+D2012 <- read_sav("Divorcios/Divorcio2012.sav")
+D2013 <- read_sav("Divorcios/Divorcio2013.sav")
+D2014 <- read_sav("Divorcios/Divorcio2014.sav")
+D2015 <- read_sav("Divorcios/Divorcio2015.sav")
+D2016 <- read_sav("Divorcios/Divorcio2016.sav")
+D2017 <- read_sav("Divorcios/Divorcio2017.sav")
+D2018 <- read_sav("Divorcios/Divorcio2018.sav")
+D2019 <- read_sav("Divorcios/Divorcio2019.sav")
+D2020 <- read_sav("Divorcios/Divorcio2020.sav")
+D2021 <- read_sav("Divorcios/Divorcio2021.sav")
+```
