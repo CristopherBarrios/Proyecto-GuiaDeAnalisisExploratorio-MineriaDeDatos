@@ -2,6 +2,7 @@
 Creado por:
 
 - Cristopher Jose Rodolfo Barrios Solis
+- Mariana David Sosa
 
 [Instrucciones](./Proyecto.AnálisisExploratorio.2023.pdf)
 
