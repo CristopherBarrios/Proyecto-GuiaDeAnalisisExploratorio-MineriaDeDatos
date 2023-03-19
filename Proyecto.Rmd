@@ -1,12 +1,8 @@
 ---
 title: "Proyect"
-author: "Cristopher Barrios"
+author: "Cristopher Barrios, Elian, Angel Higueros, Mariana David "
 date: "16/2/2023"
-output:
-  pdf_document: default
-  code_folding: hide
-  html_document:
-  word_document: default
+output: html_document
 ---
 
 ```{r setup, include=FALSE}
@@ -14,58 +10,112 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 librerias
-```{r}
+```{r, echo=FALSE}
 library(haven)
 library(stats)
 library(dplyr)
 library(ggplot2)
+library(cluster) #Para calcular la silueta
+library(e1071)#para cmeans
+library(mclust) #mixtures of gaussians
+library(fpc) #para hacer el plotcluster
+library(NbClust) #Para determinar el número de clusters óptimo
+library(factoextra) #Para hacer gráficos bonitos de clustering
+library(hopkins) #Para revisar si vale la pena hacer agrupamiento
+library(GGally) #Para hacer el conjunto de graficos
+library(FeatureImpCluster) #Para revisar la importancia de las variables en los grupos. # nolint
+library(pheatmap) #Para hacer mapa de calor
 ```
 
 datos
 ```{r}
-M2009 <- read_sav("Matrimonios/Matrimonio2009.sav")
-M2010 <- read_sav("Matrimonios/Matrimonio2010.sav")
-M2011 <- read_sav("Matrimonios/Matrimonio2011.sav")
-M2012 <- read_sav("Matrimonios/Matrimonio2012.sav")
-M2013 <- read_sav("Matrimonios/Matrimonio2013.sav")
-M2014 <- read_sav("Matrimonios/Matrimonio2014.sav")
-M2015 <- read_sav("Matrimonios/Matrimonio2015.sav")
-M2016 <- read_sav("Matrimonios/Matrimonio2016.sav")
-M2017 <- read_sav("Matrimonios/Matrimonio2017.sav")
-M2018 <- read_sav("Matrimonios/Matrimonio2018.sav")
-M2019 <- read_sav("Matrimonios/Matrimonio2019.sav")
-M2020 <- read_sav("Matrimonios/Matrimonio2020.sav")
-M2021 <- read_sav("Matrimonios/Matrimonio2021.sav")
+M2009 <- read_sav("Matrimonios/Matrimonio2009.sav") # nolint
+M2010 <- read_sav("Matrimonios/Matrimonio2010.sav") # nolint
+M2011 <- read_sav("Matrimonios/Matrimonio2011.sav") # nolint
+M2012 <- read_sav("Matrimonios/Matrimonio2012.sav") # nolint
+M2013 <- read_sav("Matrimonios/Matrimonio2013.sav") # nolint
+M2014 <- read_sav("Matrimonios/Matrimonio2014.sav") # nolint
+M2015 <- read_sav("Matrimonios/Matrimonio2015.sav") # nolint
+M2016 <- read_sav("Matrimonios/Matrimonio2016.sav") # nolint
+M2017 <- read_sav("Matrimonios/Matrimonio2017.sav") # nolint
+M2018 <- read_sav("Matrimonios/Matrimonio2018.sav") # nolint
+M2019 <- read_sav("Matrimonios/Matrimonio2019.sav") # nolint
+M2020 <- read_sav("Matrimonios/Matrimonio2020.sav") # nolint
+M2021 <- read_sav("Matrimonios/Matrimonio2021.sav") # nolint
 ```
 Nacimiento
 ```{r}
-N2009 <- read_sav("Nacimientos/Nacimiento2009.sav")
-N2010 <- read_sav("Nacimientos/Nacimiento2010.sav")
-N2011 <- read_sav("Nacimientos/Nacimiento2011.sav")
-N2012 <- read_sav("Nacimientos/Nacimiento2012.sav")
-N2013 <- read_sav("Nacimientos/Nacimiento2013.sav")
-N2014 <- read_sav("Nacimientos/Nacimiento2014.sav")
-N2015 <- read_sav("Nacimientos/Nacimiento2015.sav")
-N2016 <- read_sav("Nacimientos/Nacimiento2016.sav")
-N2017 <- read_sav("Nacimientos/Nacimiento2017.sav")
-N2018 <- read_sav("Nacimientos/Nacimiento2018.sav")
-N2019 <- read_sav("Nacimientos/Nacimiento2019.sav")
-N2020 <- read_sav("Nacimientos/Nacimiento2020.sav")
-N2021 <- read_sav("Nacimientos/Nacimiento2021.sav")
+N2009 <- read_sav("Nacimientos/Nacimiento2009.sav") # nolint
+N2010 <- read_sav("Nacimientos/Nacimiento2010.sav") # nolint
+N2011 <- read_sav("Nacimientos/Nacimiento2011.sav") # nolint
+N2012 <- read_sav("Nacimientos/Nacimiento2012.sav") # nolint
+N2013 <- read_sav("Nacimientos/Nacimiento2013.sav") # nolint
+N2014 <- read_sav("Nacimientos/Nacimiento2014.sav") # nolint
+N2015 <- read_sav("Nacimientos/Nacimiento2015.sav") # nolint
+N2016 <- read_sav("Nacimientos/Nacimiento2016.sav") # nolint
+N2017 <- read_sav("Nacimientos/Nacimiento2017.sav") # nolint
+N2018 <- read_sav("Nacimientos/Nacimiento2018.sav") # nolint
+N2019 <- read_sav("Nacimientos/Nacimiento2019.sav") # nolint
+N2020 <- read_sav("Nacimientos/Nacimiento2020.sav") # nolint
+N2021 <- read_sav("Nacimientos/Nacimiento2021.sav") # nolint
 ```
 Divorcios
 ```{r}
-D2009 <- read_sav("Divorcios/Divorcio2009.sav")
-D2010 <- read_sav("Divorcios/Divorcio2010.sav")
-D2011 <- read_sav("Divorcios/Divorcio2011.sav")
-D2012 <- read_sav("Divorcios/Divorcio2012.sav")
-D2013 <- read_sav("Divorcios/Divorcio2013.sav")
-D2014 <- read_sav("Divorcios/Divorcio2014.sav")
-D2015 <- read_sav("Divorcios/Divorcio2015.sav")
-D2016 <- read_sav("Divorcios/Divorcio2016.sav")
-D2017 <- read_sav("Divorcios/Divorcio2017.sav")
-D2018 <- read_sav("Divorcios/Divorcio2018.sav")
-D2019 <- read_sav("Divorcios/Divorcio2019.sav")
-D2020 <- read_sav("Divorcios/Divorcio2020.sav")
-D2021 <- read_sav("Divorcios/Divorcio2021.sav")
+D2009 <- read_sav("Divorcios/Divorcio2009.sav") # nolint
+D2010 <- read_sav("Divorcios/Divorcio2010.sav") # nolint
+D2011 <- read_sav("Divorcios/Divorcio2011.sav") # nolint
+D2012 <- read_sav("Divorcios/Divorcio2012.sav") # nolint
+D2013 <- read_sav("Divorcios/Divorcio2013.sav") # nolint
+D2014 <- read_sav("Divorcios/Divorcio2014.sav") # nolint
+D2015 <- read_sav("Divorcios/Divorcio2015.sav") # nolint
+D2016 <- read_sav("Divorcios/Divorcio2016.sav") # nolint
+D2017 <- read_sav("Divorcios/Divorcio2017.sav") # nolint
+D2018 <- read_sav("Divorcios/Divorcio2018.sav") # nolint
+D2019 <- read_sav("Divorcios/Divorcio2019.sav") # nolint
+D2020 <- read_sav("Divorcios/Divorcio2020.sav") # nolint
+D2021 <- read_sav("Divorcios/Divorcio2021.sav") # nolint
+```
+
+## Descripción variables y observaciones 
+Comience describiendo cuantas variables y observaciones tiene disponibles, el
+tipo de cada una de las variables.
+
+```{r}
+vars1_numéricas <- sapply(D2009, is.numeric) #Analisis de divorcios 2009 # nolint
+vars2_numéricas <- sapply(D2010, is.numeric) #Analisis de divorcios 2010 # nolint
+print(vars1_numéricas)
+print(vars2_numéricas)
+```
+
+## Resumen de datos para verificar si son numéricas 
+Haga un resumen de las variables numéricas e investigue si siguen una
+distribución normal y tablas de frecuencia para las variables categóricas, escriba lo
+que vaya encontrando. 
+```{r}
+summary(M2009)
+```
+
+## Resumen de datos para verificar si son numéricas 
+```{r}
+
+```
+
+## Variables importantes
+Cruce las variables que considere que son las más importantes para hallar los
+elementos clave que lo pueden llevar a comprender lo que está causando el
+problema encontrado.
+```{r}
+
+```
+
+## Graficos exploratorios 
+Haga gráficos exploratorios que le de ideas del estado de los datos.
+```{r}
+
+```
+
+## Clustering
+Haga un agrupamiento (clustering) e interprete los resultados.
+```{r}
+
 ```
