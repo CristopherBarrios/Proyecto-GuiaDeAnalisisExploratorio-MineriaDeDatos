@@ -1,8 +1,10 @@
 ---
 title: "Proyect"
-author: "Cristopher Barrios, Elian, Angel Higueros, Mariana David "
+author: 'Cristopher Barrios, Elian, Angel Higueros, Mariana David '
 date: "16/2/2023"
-output: html_document
+output:
+  pdf_document: default
+  html_document: default
 ---
 
 ```{r setup, include=FALSE}
@@ -117,5 +119,14 @@ Haga gráficos exploratorios que le de ideas del estado de los datos.
 ## Clustering
 Haga un agrupamiento (clustering) e interprete los resultados.
 ```{r}
+
+#D2010 <- na.omit(D2010)
+
+
+#D2009_norm <- scale(D2009)
+
+
+#cluster9 <- hclust(dist(D2009_norm), method="ward.D2")
+
 
 ```
