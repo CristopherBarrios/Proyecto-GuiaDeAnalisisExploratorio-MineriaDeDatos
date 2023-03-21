@@ -3,8 +3,8 @@ title: "Proyect"
 author: 'Cristopher Barrios, Elian, Angel Higueros, Mariana David '
 date: "16/2/2023"
 output:
-  pdf_document: default
   html_document: default
+  pdf_document: default
 ---
 
 ```{r setup, include=FALSE}
@@ -78,6 +78,35 @@ D2020 <- read_sav("Divorcios/Divorcio2020.sav") # nolint
 D2021 <- read_sav("Divorcios/Divorcio2021.sav") # nolint
 ```
 
+
+```{r}
+  EdadMujD2009 <- sum(D2009$Edadmuj)
+  EdadMujD2010 <- sum(D2010$edadmuj)
+  EdadMujD2011 <- sum(D2011$edadmuj)
+  EdadMujD2012 <- sum(D2012$EDADMUJ)
+  EdadMujD2013 <- sum(D2013$EDADMUJ)
+  EdadMujD2014 <- sum(D2014$EDADMUJ)
+  EdadMujD2015 <- sum(D2015$EDADMUJ)
+  EdadMujD2016 <- sum(D2016$EDADMUJ)
+  EdadMujD2017 <- sum(D2017$EDADMUJ)
+  EdadMujD2018 <- sum(D2018$EDADMUJ)
+  EdadMujD2019 <- sum(D2019$EDADMUJ)
+  EdadMujD2020 <- sum(D2020$EDADMUJ)
+  EdadMujD2021 <- sum(D2021$EDADMUJ)
+```
+
+```{r}
+dfD <- data.frame (año  = c("2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017","2018","2019","2020","2021"), matrimonios = c(EdadMujD2009, EdadMujD2010, EdadMujD2011, EdadMujD2012, EdadMujD2013, EdadMujD2014, EdadMujD2015, EdadMujD2016, EdadMujD2017, EdadMujD2018, EdadMujD2019, EdadMujD2020, EdadMujD2021))
+print(dfD)
+```
+
+```{r}
+ggplot(dfD, aes(x=año, y=matrimonios, group = 1)) + 
+  geom_point(size = 2, color = "green") + 
+  geom_line(color="green") +
+  labs(x = "Año", y = "Divorcios", title = "Divorcios")
+```
+
 ## Descripción variables y observaciones 
 Comience describiendo cuantas variables y observaciones tiene disponibles, el
 tipo de cada una de las variables.
@@ -120,13 +149,23 @@ Haga gráficos exploratorios que le de ideas del estado de los datos.
 Haga un agrupamiento (clustering) e interprete los resultados.
 ```{r}
 
-#D2010 <- na.omit(D2010)
 
 
-#D2009_norm <- scale(D2009)
+# Leer archivo SPSS
+D2009 <- read_sav("Divorcios/Divorcio2009.sav")
 
+# Seleccionar variables para el análisis
+data <- select(D2009, Depreg, Mupreg)
 
-#cluster9 <- hclust(dist(D2009_norm), method="ward.D2")
+# Convertir variables a formato adecuado para clustering
+data_bin <- model.matrix(~ Depreg + Mupreg - 1, data = data)
+
+# Realizar clustering con k-modes
+set.seed(123)
+kmodes_model <- clustMixType::kmod(data_bin, 3)
+
+# Mostrar resultados del clustering
+fviz_cluster(kmodes_model, data = data_bin)
 
 
 ```
