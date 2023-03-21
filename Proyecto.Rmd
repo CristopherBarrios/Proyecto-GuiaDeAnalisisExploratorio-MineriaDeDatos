@@ -125,7 +125,7 @@ Haga un agrupamiento (clustering) e interprete los resultados.
 ```
 
 -----------------------------------------------------------------------------------------
-# Analisis
+## Analisis
 
 ```{r}
   EdadMujD2009 <- sum(D2009$Edadmuj)
@@ -158,71 +158,98 @@ ggplot(dfD, aes(x=año, y=matrimonios, group = 1)) +
 --------------------------------------------------------------------------------
 
 ## Histogramas
-
 2009
 ```{r}
 library(dplyr)
 library(ggplot2)
+
+D2009 <- subset(D2009, Edadmuj < 999)
+
+
 barplot(table(D2009$Edadmuj), main = "Edad de la mujer en divorcios 2009", xlab = "Edad", ylab = "Cantidad", col = "steelblue" , border = "pink")
 ```
 
 2010
 ```{r}
+D2010 <- subset(D2010, edadmuj < 999)
+
 barplot(table(D2010$edadmuj), main = "Edad de la mujer en divorcios 2010", xlab = "Edad", ylab = "Cantidad", col = "steelblue" , border = "pink")
 ```
 
 2011
 ```{r}
+D2011 <- subset(D2011, edadmuj < 999)
+
 barplot(table(D2011$edadmuj), main = "Edad de la mujer en divorcios 2011", xlab = "Edad", ylab = "Cantidad", col = "steelblue" , border = "pink")
 ```
 
 2012
 ```{r}
+D2012 <- subset(D2012, EDADMUJ < 999)
+
 barplot(table(D2012$EDADMUJ), main = "Edad de la mujer en divorcios 2012", xlab = "Edad", ylab = "Cantidad", col = "steelblue" , border = "pink")
 ```
 
 2013
 ```{r}
+D2013 <- subset(D2013, EDADMUJ < 999)
+
 barplot(table(D2013$EDADMUJ), main = "Edad de la mujer en divorcios 2013", xlab = "Edad", ylab = "Cantidad", col = "steelblue" , border = "pink")
 ```
 
 2014
 ```{r}
+D2014 <- subset(D2014, EDADMUJ < 999)
+
 barplot(table(D2014$EDADMUJ), main = "Edad de la mujer en divorcios 2014", xlab = "Edad", ylab = "Cantidad", col = "steelblue" , border = "pink")
 ```
 
 2015
 ```{r}
+D2015 <- subset(D2015, EDADMUJ < 999)
+
 barplot(table(D2015$EDADMUJ), main = "Edad de la mujer en divorcios 2015", xlab = "Edad", ylab = "Cantidad", col = "steelblue" , border = "pink")
 ```
 
 2016
 ```{r}
+D2016 <- subset(D2016, EDADMUJ < 999)
+
 barplot(table(D2016$EDADMUJ), main = "Edad de la mujer en divorcios 2016", xlab = "Edad", ylab = "Cantidad", col = "steelblue" , border = "pink")
 ```
 
 2017
 ```{r}
+D2017 <- subset(D2017, EDADMUJ < 999)
+
 barplot(table(D2017$EDADMUJ), main = "Edad de la mujer en divorcios 2017", xlab = "Edad", ylab = "Cantidad", col = "steelblue" , border = "pink")
 ```
 
 2018
 ```{r}
+D2018 <- subset(D2018, EDADMUJ < 999)
+
 barplot(table(D2018$EDADMUJ), main = "Edad de la mujer en divorcios 2018", xlab = "Edad", ylab = "Cantidad", col = "steelblue" , border = "pink")
 ```
 
 2019
 ```{r}
+D2019 <- subset(D2019, EDADMUJ < 999)
+
 barplot(table(D2019$EDADMUJ), main = "Edad de la mujer en divorcios 2019", xlab = "Edad", ylab = "Cantidad", col = "steelblue" , border = "pink")
 ```
 
 2020
 ```{r}
+D2020 <- subset(D2020, EDADMUJ < 999)
+
 barplot(table(D2020$EDADMUJ), main = "Edad de la mujer en divorcios 2020", xlab = "Edad", ylab = "Cantidad", col = "steelblue" , border = "pink")
 ```
 
 2021
 ```{r}
+D2021 <- subset(D2021, EDADMUJ < 999)
+
 barplot(table(D2021$EDADMUJ), main = "Edad de la mujer en divorcios 2021", xlab = "Edad", ylab = "Cantidad", col = "steelblue" , border = "pink")
 ```
 
