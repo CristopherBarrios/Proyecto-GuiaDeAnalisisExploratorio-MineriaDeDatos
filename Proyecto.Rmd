@@ -79,34 +79,6 @@ D2021 <- read_sav("Divorcios/Divorcio2021.sav") # nolint
 ```
 
 
-```{r}
-  EdadMujD2009 <- sum(D2009$Edadmuj)
-  EdadMujD2010 <- sum(D2010$edadmuj)
-  EdadMujD2011 <- sum(D2011$edadmuj)
-  EdadMujD2012 <- sum(D2012$EDADMUJ)
-  EdadMujD2013 <- sum(D2013$EDADMUJ)
-  EdadMujD2014 <- sum(D2014$EDADMUJ)
-  EdadMujD2015 <- sum(D2015$EDADMUJ)
-  EdadMujD2016 <- sum(D2016$EDADMUJ)
-  EdadMujD2017 <- sum(D2017$EDADMUJ)
-  EdadMujD2018 <- sum(D2018$EDADMUJ)
-  EdadMujD2019 <- sum(D2019$EDADMUJ)
-  EdadMujD2020 <- sum(D2020$EDADMUJ)
-  EdadMujD2021 <- sum(D2021$EDADMUJ)
-```
-
-```{r}
-dfD <- data.frame (año  = c("2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017","2018","2019","2020","2021"), matrimonios = c(EdadMujD2009, EdadMujD2010, EdadMujD2011, EdadMujD2012, EdadMujD2013, EdadMujD2014, EdadMujD2015, EdadMujD2016, EdadMujD2017, EdadMujD2018, EdadMujD2019, EdadMujD2020, EdadMujD2021))
-print(dfD)
-```
-
-```{r}
-ggplot(dfD, aes(x=año, y=matrimonios, group = 1)) + 
-  geom_point(size = 2, color = "green") + 
-  geom_line(color="green") +
-  labs(x = "Año", y = "Divorcios", title = "Divorcios")
-```
-
 ## Descripción variables y observaciones 
 Comience describiendo cuantas variables y observaciones tiene disponibles, el
 tipo de cada una de las variables.
@@ -150,22 +122,107 @@ Haga un agrupamiento (clustering) e interprete los resultados.
 ```{r}
 
 
-
-# Leer archivo SPSS
-D2009 <- read_sav("Divorcios/Divorcio2009.sav")
-
-# Seleccionar variables para el análisis
-data <- select(D2009, Depreg, Mupreg)
-
-# Convertir variables a formato adecuado para clustering
-data_bin <- model.matrix(~ Depreg + Mupreg - 1, data = data)
-
-# Realizar clustering con k-modes
-set.seed(123)
-kmodes_model <- clustMixType::kmod(data_bin, 3)
-
-# Mostrar resultados del clustering
-fviz_cluster(kmodes_model, data = data_bin)
-
-
 ```
+
+-----------------------------------------------------------------------------------------
+# Analisis
+
+```{r}
+  EdadMujD2009 <- sum(D2009$Edadmuj)
+  EdadMujD2010 <- sum(D2010$edadmuj)
+  EdadMujD2011 <- sum(D2011$edadmuj)
+  EdadMujD2012 <- sum(D2012$EDADMUJ)
+  EdadMujD2013 <- sum(D2013$EDADMUJ)
+  EdadMujD2014 <- sum(D2014$EDADMUJ)
+  EdadMujD2015 <- sum(D2015$EDADMUJ)
+  EdadMujD2016 <- sum(D2016$EDADMUJ)
+  EdadMujD2017 <- sum(D2017$EDADMUJ)
+  EdadMujD2018 <- sum(D2018$EDADMUJ)
+  EdadMujD2019 <- sum(D2019$EDADMUJ)
+  EdadMujD2020 <- sum(D2020$EDADMUJ)
+  EdadMujD2021 <- sum(D2021$EDADMUJ)
+```
+
+```{r}
+dfD <- data.frame (año  = c("2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017","2018","2019","2020","2021"), matrimonios = c(EdadMujD2009, EdadMujD2010, EdadMujD2011, EdadMujD2012, EdadMujD2013, EdadMujD2014, EdadMujD2015, EdadMujD2016, EdadMujD2017, EdadMujD2018, EdadMujD2019, EdadMujD2020, EdadMujD2021))
+print(dfD)
+```
+
+```{r}
+ggplot(dfD, aes(x=año, y=matrimonios, group = 1)) + 
+  geom_point(size = 2, color = "green") + 
+  geom_line(color="green") +
+  labs(x = "Año", y = "Divorcios", title = "Divorcios")
+```
+
+--------------------------------------------------------------------------------
+
+## Histogramas
+
+2009
+```{r}
+library(dplyr)
+library(ggplot2)
+barplot(table(D2009$Edadmuj), main = "Edad de la mujer en divorcios 2009", xlab = "Edad", ylab = "Cantidad", col = "steelblue" , border = "pink")
+```
+
+2010
+```{r}
+barplot(table(D2010$edadmuj), main = "Edad de la mujer en divorcios 2010", xlab = "Edad", ylab = "Cantidad", col = "steelblue" , border = "pink")
+```
+
+2011
+```{r}
+barplot(table(D2011$edadmuj), main = "Edad de la mujer en divorcios 2011", xlab = "Edad", ylab = "Cantidad", col = "steelblue" , border = "pink")
+```
+
+2012
+```{r}
+barplot(table(D2012$EDADMUJ), main = "Edad de la mujer en divorcios 2012", xlab = "Edad", ylab = "Cantidad", col = "steelblue" , border = "pink")
+```
+
+2013
+```{r}
+barplot(table(D2013$EDADMUJ), main = "Edad de la mujer en divorcios 2013", xlab = "Edad", ylab = "Cantidad", col = "steelblue" , border = "pink")
+```
+
+2014
+```{r}
+barplot(table(D2014$EDADMUJ), main = "Edad de la mujer en divorcios 2014", xlab = "Edad", ylab = "Cantidad", col = "steelblue" , border = "pink")
+```
+
+2015
+```{r}
+barplot(table(D2015$EDADMUJ), main = "Edad de la mujer en divorcios 2015", xlab = "Edad", ylab = "Cantidad", col = "steelblue" , border = "pink")
+```
+
+2016
+```{r}
+barplot(table(D2016$EDADMUJ), main = "Edad de la mujer en divorcios 2016", xlab = "Edad", ylab = "Cantidad", col = "steelblue" , border = "pink")
+```
+
+2017
+```{r}
+barplot(table(D2017$EDADMUJ), main = "Edad de la mujer en divorcios 2017", xlab = "Edad", ylab = "Cantidad", col = "steelblue" , border = "pink")
+```
+
+2018
+```{r}
+barplot(table(D2018$EDADMUJ), main = "Edad de la mujer en divorcios 2018", xlab = "Edad", ylab = "Cantidad", col = "steelblue" , border = "pink")
+```
+
+2019
+```{r}
+barplot(table(D2019$EDADMUJ), main = "Edad de la mujer en divorcios 2019", xlab = "Edad", ylab = "Cantidad", col = "steelblue" , border = "pink")
+```
+
+2020
+```{r}
+barplot(table(D2020$EDADMUJ), main = "Edad de la mujer en divorcios 2020", xlab = "Edad", ylab = "Cantidad", col = "steelblue" , border = "pink")
+```
+
+2021
+```{r}
+barplot(table(D2021$EDADMUJ), main = "Edad de la mujer en divorcios 2021", xlab = "Edad", ylab = "Cantidad", col = "steelblue" , border = "pink")
+```
+
