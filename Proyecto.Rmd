@@ -424,3 +424,48 @@ ggplot(data = divorciosEdadHom, aes(x = EDADHOM)) +
   ggtitle("Histograma con curva normal teórica de las edades de los hombres (2012 - 2021)") + 
   theme_bw()
 ```  
+
+### Diagrama de caja y bigotes
+
+```{r normalBoxEdadHombre, echo=FALSE}
+boxplot(divorciosEdadHom$EDADHOM, main = "Caja y Bigotes de edad de los hombres al divorciarse (2012 - 2021)", xlab = "edad")
+```
+
+### Diagrama qqnormal
+
+```{r normalQQEdadHombre, echo=FALSE}
+qqnorm(divorciosEdadHom$EDADHOM, col="blue")
+qqline(divorciosEdadHom$EDADHOM, col="red")
+```
+
+
+## Registros de edad de mujeres
+### Prueba de normalidad para la edad de la mujer:
+
+```{r normalHistEdadMuje, echo=FALSE}
+#install.packages("ggplot2",repos = "http://cran.us.r-project.org")
+library (ggplot2)
+divorciosEdadMuj <- subset(divorcios, EDADMUJ < 999)
+
+ggplot(data = divorciosEdadMuj, aes(x = EDADMUJ)) + 
+  geom_histogram(aes(y=..density.., fill = ..count..))+
+  scale_fill_gradient(low = "#DCDCDC", high = "#7C7C7C")+
+  stat_function(fun = dnorm, colour = "firebrick",
+                args = list(mean = mean(divorciosEdadMuj$EDADMUJ),
+                            sd = sd(divorciosEdadMuj$EDADMUJ)))+
+  ggtitle("Histograma con curva normal teórica de las edades de las mujeres (2012 - 2021)") + 
+  theme_bw()
+```  
+
+### Diagrama de caja y bigotes
+
+```{r normalBoxEdadMujer, echo=FALSE}
+boxplot(divorciosEdadMuj$EDADMUJ, main = "Caja y Bigotes de edad de las mujeres al divorciarse (2012 - 2021)", xlab = "edad")
+```
+
+### Diagrama qqnormal
+
+```{r normalQQEdadMujer, echo=FALSE}
+qqnorm(divorciosEdadMuj$EDADMUJ, col="blue")
+qqline(divorciosEdadMuj$EDADMUJ, col="red")
+```
