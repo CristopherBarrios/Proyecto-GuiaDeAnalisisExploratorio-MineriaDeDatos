@@ -322,6 +322,25 @@ D2021 <- D2021 %>% mutate(CIUOMUJ = as.character(CIUOMUJ))
 ```
 
 ```{r}
-divorcios <- bind_rows(D2009, D2010, D2011, D2012, D2013, D2014, D2015, D2016, D2017, D2018, D2019, D2020, D2021)
+#divorcios <- bind_rows(D2009, D2010, D2011, D2012, D2013, D2014, D2015, D2016, D2017, D2018, D2019, D2020, D2021)
+
+divorcios <- bind_rows( D2012, D2013, D2014, D2015, D2016, D2017, D2018, D2019, D2020, D2021)
 ```
 
+```{r}
+str(divorcios)
+```
+
+```{r normalHist, echo=FALSE}
+#install.packages("ggplot2",repos = "http://cran.us.r-project.org")
+library (ggplot2)
+ggplot(data = divorcios, aes(x = AÑOREG)) + 
+  geom_histogram(aes(y=..density.., fill = ..count..))+
+  scale_fill_gradient(low = "#DCDCDC", high = "#7C7C7C")+
+  stat_function(fun = dnorm, colour = "firebrick",
+                args = list(mean = mean(divorcios$AÑOREG),
+                            sd = sd(divorcios$AÑOREG)))+
+  ggtitle("Histograma con curva normal teórica de los registros de divorcios por año ") + 
+  theme_bw()
+
+```  
