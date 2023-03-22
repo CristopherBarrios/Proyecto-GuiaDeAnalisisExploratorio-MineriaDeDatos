@@ -1,6 +1,6 @@
 ---
 title: "Proyect"
-author: 'Cristopher Barrios, Elian, Angel Higueros, Mariana David '
+author: 'Cristopher Barrios, Elean Rivas, Angel Higueros, Mariana David '
 date: "16/2/2023"
 output:
   html_document: default
@@ -44,6 +44,9 @@ M2018 <- read_sav("Matrimonios/Matrimonio2018.sav") # nolint
 M2019 <- read_sav("Matrimonios/Matrimonio2019.sav") # nolint
 M2020 <- read_sav("Matrimonios/Matrimonio2020.sav") # nolint
 M2021 <- read_sav("Matrimonios/Matrimonio2021.sav") # nolint
+
+
+
 ```
 Nacimiento
 ```{r}
@@ -76,6 +79,8 @@ D2018 <- read_sav("Divorcios/Divorcio2018.sav") # nolint
 D2019 <- read_sav("Divorcios/Divorcio2019.sav") # nolint
 D2020 <- read_sav("Divorcios/Divorcio2020.sav") # nolint
 D2021 <- read_sav("Divorcios/Divorcio2021.sav") # nolint
+
+
 ```
 
 
@@ -98,18 +103,39 @@ que vaya encontrando.
 summary(M2009)
 ```
 
-## Resumen de datos para verificar si son numéricas 
-```{r}
-
-```
 
 ## Variables importantes
 Cruce las variables que considere que son las más importantes para hallar los
 elementos clave que lo pueden llevar a comprender lo que está causando el
 problema encontrado.
+
+Tiempo: Es importante poder ver el cambio a través del tiempo, si ha habido un incremente o decremento, tanto en matrimonios como en divorcios
+
+NUNUHO:"Número de nupcias del hombre"
+NUNUMU:"Número de nupcias de la mujer"
+
 ```{r}
+M2021[, c(7, 8)]
 
 ```
+
+Saber si una persona ha estado previamente casada y si esto influye en la posibilidad de divorcio, cómo hipotesis se espera que las personas que han tenido más de dos nupcias antes, son más propensas al divorcio
+
+Edadhom: "Edad del hombre"
+Edadmuj: "Edad de la mujer"
+
+```{r}
+D2021[, c(10, 11)]
+
+```
+
+La edad puede ser un dato interesante a explorar, esto para saber si los jovenes tienen más tendencia a casarse o divorcioarse y si los matrimonios más duraderos tienen menos divorcios
+
+Genero: Es interesante ver que genero es más propenso a los divorcios, esto también puede estar relacionado con la cantidad de nupcias de una persona
+
+Efectos de la pandemia: Ver como los divorcios y matrimonios se comportaron a partir de marzo de 2020 que fue el momento en que la cuarentena empezó a hacerse efectiva
+
+
 
 ## Graficos exploratorios 
 Haga gráficos exploratorios que le de ideas del estado de los datos.
