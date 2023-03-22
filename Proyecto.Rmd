@@ -83,9 +83,28 @@ D2021 <- read_sav("Divorcios/Divorcio2021.sav") # nolint
 Comience describiendo cuantas variables y observaciones tiene disponibles, el
 tipo de cada una de las variables.
 
-```{r}
+Las bases de datos de matrimonios cuentan con diferentes cantidades de variables,pero las 22 más comunes son:
+---Para divorcios---
+DEPREG: cualitativa
+MUPREG: cualitativa
+MESREG: cualitativa
+AÑOREG: cuantitativa discreta
+DIAOCU: cuantitativa
+MESOCU: cualitativa
+ANOOCU: cuantitativa discreta
+DEPOCU: cualitativa
+MUPOCU: cualitativa
+EDADHOM: cuantitativa discreta
+EDADMUJ: cuantitativa discreta
+GETHOM: cualitativa
+GETMUJ: cualitativa
+NACHOM: cualitativa
+NACMUJ: cualitativa
+OCUHOM: cualitativa
+OCUMUJ: cualitativa
+MEVER: cualitativa
+ANOVER: cualitativa
 
-```
 
 ## Resumen de datos 
 Haga un resumen de las variables numéricas e investigue si siguen una
