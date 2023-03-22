@@ -167,12 +167,7 @@ Haga gráficos exploratorios que le de ideas del estado de los datos.
 
 ```
 
-## Clustering
-Haga un agrupamiento (clustering) e interprete los resultados.
-```{r}
 
-
-```
 
 -----------------------------------------------------------------------------------------
 ## Analisis
@@ -305,13 +300,19 @@ barplot(table(D2021$EDADMUJ), main = "Edad de la mujer en divorcios 2021", xlab 
 --------------------------------------------------------------------------
 ## Convinando datos
 ```{r}
-colnames(D2009) <- c("DEPREG", "MUPREG", "MESREG", "AÑOREG", "DIAOCU", "MESOCU", "AÑOOCU", "DEPOCU", "MUPOCU", "EDADHOM", "EDADMUJ", "GETHOM", "GETMUJ", "NACHOM", "NACMUJ", "CIUOHOM", "CIUOMUJ", "Mever", "Anover")
+colnames(D2009) <- c("DEPREG", "MUPREG", "MESREG", "AÑOREG", "DIAOCU", "MESOCU", "AÑOOCU", "DEPOCU", "MUPOCU", "EDADHOM", "EDADMUJ", "PPERHOM", "PPERMUJ", "NACHOM", "NACMUJ", "CIUOHOM", "CIUOMUJ", "Mever", "Anover")
 
-colnames(D2010) <- c("DEPREG", "MUPREG", "MESREG", "AÑOREG", "DIAOCU", "MESOCU", "AÑOOCU", "DEPOCU", "MUPOCU", "EDADHOM", "EDADMUJ", "GETHOM", "GETMUJ", "NACHOM", "NACMUJ", "ESCHOM", "ESCMUJ", "CIUOHOM", "CIUOMUJ")
+colnames(D2010) <- c("DEPREG", "MUPREG", "MESREG", "AÑOREG", "DIAOCU", "MESOCU", "AÑOOCU", "DEPOCU", "MUPOCU", "EDADHOM", "EDADMUJ", "PPERHOM", "PPERMUJ", "NACHOM", "NACMUJ", "ESCHOM", "ESCMUJ", "CIUOHOM", "CIUOMUJ")
 
-colnames(D2011) <- c("DEPREG", "MUPREG", "MESREG", "AÑOREG", "DIAOCU", "MESOCU", "AÑOOCU", "DEPOCU", "MUPOCU", "EDADHOM", "EDADMUJ", "GETHOM", "GETMUJ", "NACHOM", "NACMUJ", "ESCHOM", "ESCMUJ", "CIUOHOM", "CIUOMUJ")
+colnames(D2011) <- c("DEPREG", "MUPREG", "MESREG", "AÑOREG", "DIAOCU", "MESOCU", "AÑOOCU", "DEPOCU", "MUPOCU", "EDADHOM", "EDADMUJ", "PPERHOM", "PPERMUJ", "NACHOM", "NACMUJ", "ESCHOM", "ESCMUJ", "CIUOHOM", "CIUOMUJ")
 
-colnames(D2012) <- c("DEPREG",  "MUPREG",  "MESREG",  "AÑOREG",  "DIAOCU",  "MESOCU",  "DEPOCU",  "MUPOCU", "EDADHOM", "EDADMUJ", "GETHOM",  "GETMUJ",  "NACHOM",  "NACMUJ",  "ESCHOM",  "ESCMUJ", "CIUOHOM",  "CIUOMUJ") 
+colnames(D2012) <- c("DEPREG",  "MUPREG",  "MESREG",  "AÑOREG",  "DIAOCU",  "MESOCU",  "DEPOCU",  "MUPOCU", "EDADHOM", "EDADMUJ", "PPERHOM",  "PPERMUJ",  "NACHOM",  "NACMUJ",  "ESCHOM",  "ESCMUJ", "CIUOHOM",  "CIUOMUJ") 
+
+colnames(D2013) <- c( "DEPREG",  "MUPREG",  "MESREG",  "AÑOREG",  "DIAOCU",  "MESOCU",  "DEPOCU",  "MUPOCU",  "EDADHOM", "EDADMUJ", "PPERHOM",  "PPERMUJ",  "NACHOM",  "NACMUJ",  "ESCHOM",  "ESCMUJ",  "CIUOHOM", "CIUOMUJ")
+
+colnames(D2014) <- c( "DEPREG",  "MUPREG",  "MESREG",  "AÑOREG",  "DIAOCU",  "MESOCU",  "DEPOCU",  "MUPOCU", "EDADHOM", "EDADMUJ", "PPERHOM",  "PPERMUJ",  "NACHOM",  "NACMUJ",  "ESCHOM",  "ESCMUJ",  "CIUOHOM", "CIUOMUJ")
+
+colnames(D2015) <- c("DEPREG",  "MUPREG",  "MESREG",  "AÑOREG",  "DIAOCU",  "MESOCU",  "AÑOOCU",  "DEPOCU",  "MUPOCU",  "EDADHOM", "EDADMUJ", "PPERHOM", "PPERMUJ",  "NACHOM", "NACMUJ",  "ESCHOM",  "ESCMUJ",  "CIUOHOM", "CIUOMUJ")
 
 ```
 
@@ -546,16 +547,16 @@ barplot(counts, las = 2, cex.names=.10 ,main = "Distribución de escolaridad de 
 ### Tabla de frecuencias para el grupo étnico del hombre
 ```{r frecuenciaEtniaHombre, echo=FALSE}
 
-table(divorciosLabels$PUEHOM)
-counts <- table(divorciosLabels$PUEHOM)
+table(divorciosLabels$PPERHOM)
+counts <- table(divorciosLabels$PPERHOM)
 barplot(counts, las = 2, cex.names=.8 ,main = "Distribución de etnia de los hombres (2012 - 2021)", xlab = "Etnia del hombre")
 ```
 
 ### Tabla de frecuencias para el grupo étnico de la mujer
 
 ```{r frecuenciaEtniaMujer, echo=FALSE}
-table(divorciosLabels$PUEMUJ)
-counts <- table(divorciosLabels$PUEMUJ)
+table(divorciosLabels$PPERMUJ)
+counts <- table(divorciosLabels$PPERMUJ)
 barplot(counts, las = 2, cex.names=.8 ,main = "Distribución de etnia de las mujeres (2012 - 2021)", xlab = "Etnia de las mujeres")
 ```
 
@@ -567,4 +568,23 @@ divorciosEdad <- subset(divorciosEdad, EDADHOM < 999)
 
 plot(x = divorciosEdad$EDADHOM, y= divorciosEdad$EDADMUJ, xlab= "Edad del Hombre", ylab= "Edad de la mujer", main = "Correlación entre las edades de los cónyuges (2012 - 2021)")
 abline(lm(divorciosEdad$EDADMUJ ~ divorciosEdad$EDADHOM), col = "red")
+```
+
+
+## Clustering
+Haga un agrupamiento (clustering) e interprete los resultados.
+```{r}
+divorcios$AÑOOCU <- as.numeric(factor(divorcios$AÑOOCU))
+datosClustering <- divorcios[,c("AÑOREG","EDADHOM","EDADMUJ","AÑOOCU")]
+data_omit <- na.omit(datosClustering) 
+summary(datosClustering)
+
+```
+
+
+```{r cantClusters, echo=FALSE}
+wss <- (nrow(data_omit[,1:4])-1)*sum(apply(data_omit[,1:4],2,var))
+for (i in 2:10) 
+  wss[i] <- sum(kmeans(data_omit[,1:4], centers=i)$withinss)
+plot(1:10, wss, type="b", xlab="Number of Clusters",  ylab="Within groups sum of squares")
 ```
