@@ -516,3 +516,55 @@ table(divorciosLabels$DEPOCU)
 counts <- table(divorciosLabels$DEPOCU)
 barplot(counts, las = 2, cex.names=.5 ,main = "Distribución de departamento de ocurrencia (2012 - 2021)", xlab = "Departamento de ocurrencia")
 ```
+
+### Tabla de frecuencias para el municipio de ocurrencia
+
+```{r frecuenciaMunicipio, echo=FALSE}
+table(divorciosLabels$MUPOCU)
+counts <- table(divorciosLabels$MUPOCU)
+barplot(counts, las = 2, cex.names=.5 ,main = "Distribución de municipio de ocurrencia (2012 - 2021)", xlab = "Municipio de ocurrencia")
+```
+
+
+### Tabla de frecuencias para la escolaridad del hombre
+
+```{r frecuenciaEscolaridadHombre, echo=FALSE}
+table(divorciosLabels$ESCHOM)
+counts <- table(divorciosLabels$ESCHOM)
+barplot(counts, las = 2, cex.names=.10 ,main = "Distribución de escolaridad de los hombres (2012 - 2021)", xlab = "Escolaridad del hombre")
+```
+
+### Tabla de frecuencias para la escolaridad de la Mujer
+
+```{r frecuenciaEscolaridadMujer, echo=FALSE}
+
+table(divorciosLabels$ESCMUJ)
+counts <- table(divorciosLabels$ESCMUJ)
+barplot(counts, las = 2, cex.names=.10 ,main = "Distribución de escolaridad de las mujeres (2012 - 2021)", xlab = "Escolaridad de las mujeres")
+```
+
+### Tabla de frecuencias para el grupo étnico del hombre
+```{r frecuenciaEtniaHombre, echo=FALSE}
+
+table(divorciosLabels$PUEHOM)
+counts <- table(divorciosLabels$PUEHOM)
+barplot(counts, las = 2, cex.names=.8 ,main = "Distribución de etnia de los hombres (2012 - 2021)", xlab = "Etnia del hombre")
+```
+
+### Tabla de frecuencias para el grupo étnico de la mujer
+
+```{r frecuenciaEtniaMujer, echo=FALSE}
+table(divorciosLabels$PUEMUJ)
+counts <- table(divorciosLabels$PUEMUJ)
+barplot(counts, las = 2, cex.names=.8 ,main = "Distribución de etnia de las mujeres (2012 - 2021)", xlab = "Etnia de las mujeres")
+```
+
+## Correlacion entre edades de los cónyuges
+
+```{r CorrelacionEdades, echo=FALSE}
+divorciosEdad <- subset(divorcios, EDADMUJ < 999)
+divorciosEdad <- subset(divorciosEdad, EDADHOM < 999)
+
+plot(x = divorciosEdad$EDADHOM, y= divorciosEdad$EDADMUJ, xlab= "Edad del Hombre", ylab= "Edad de la mujer", main = "Correlación entre las edades de los cónyuges (2012 - 2021)")
+abline(lm(divorciosEdad$EDADMUJ ~ divorciosEdad$EDADHOM), col = "red")
+```
