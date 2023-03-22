@@ -406,3 +406,21 @@ boxplot(divorcios$AÑOREG, main = "Caja y Bigotes de registro de divorcios por a
 qqnorm(divorcios$AÑOREG, col="blue")
 qqline(divorcios$AÑOREG, col="red")
 ```
+
+## Registros de Edad hombre
+### Prueba de normalidad para la edad del hombre:
+
+```{r normalHistEdadHombre, echo=FALSE}
+#install.packages("ggplot2",repos = "http://cran.us.r-project.org")
+library (ggplot2)
+divorciosEdadHom <- subset(divorcios, EDADHOM < 999)
+
+ggplot(data = divorciosEdadHom, aes(x = EDADHOM)) + 
+  geom_histogram(aes(y=..density.., fill = ..count..))+
+  scale_fill_gradient(low = "#DCDCDC", high = "#7C7C7C")+
+  stat_function(fun = dnorm, colour = "firebrick",
+                args = list(mean = mean(divorciosEdadHom$EDADHOM),
+                            sd = sd(divorciosEdadHom$EDADHOM)))+
+  ggtitle("Histograma con curva normal teórica de las edades de los hombres (2012 - 2021)") + 
+  theme_bw()
+```  
