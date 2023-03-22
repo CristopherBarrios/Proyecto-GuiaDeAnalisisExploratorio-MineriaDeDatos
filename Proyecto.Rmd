@@ -84,18 +84,23 @@ Comience describiendo cuantas variables y observaciones tiene disponibles, el
 tipo de cada una de las variables.
 
 ```{r}
-vars1_numéricas <- sapply(D2009, is.numeric) #Analisis de divorcios 2009 # nolint
-vars2_numéricas <- sapply(D2010, is.numeric) #Analisis de divorcios 2010 # nolint
-print(vars1_numéricas)
-print(vars2_numéricas)
+
 ```
 
-## Resumen de datos para verificar si son numéricas 
+## Resumen de datos 
 Haga un resumen de las variables numéricas e investigue si siguen una
 distribución normal y tablas de frecuencia para las variables categóricas, escriba lo
 que vaya encontrando. 
 ```{r}
-summary(M2009)
+#summary(M2009)
+# Crear una lista con los conjuntos de datos
+datasets <- list(D2009, D2010, D2011, D2012, D2013, D2014, D2015, D2016, D2017, D2018, D2019, D2020, D2021)
+
+# Crear un bucle for para analizar cada conjunto de datos y obtener los nombres de las variables numéricas
+for (i in 1:length(datasets)) {
+  vars_numéricas <- sapply(datasets[[i]], is.numeric)
+  print(names(vars_numéricas[vars_numéricas]))
+}
 ```
 
 ## Resumen de datos para verificar si son numéricas 
