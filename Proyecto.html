@@ -366,9 +366,11 @@ Mariana David</h4>
 <pre><code>## The following objects are masked from &#39;package:base&#39;:
 ## 
 ##     intersect, setdiff, setequal, union</code></pre>
+<pre><code>## Warning: package &#39;ggplot2&#39; was built under R version 4.2.3</code></pre>
 <pre><code>## Package &#39;mclust&#39; version 6.0.0
 ## Type &#39;citation(&quot;mclust&quot;)&#39; for citing this R package in publications.</code></pre>
 <pre><code>## Welcome! Want to learn more? See two factoextra-related books at https://goo.gl/ve3WBa</code></pre>
+<pre><code>## Warning: package &#39;GGally&#39; was built under R version 4.2.3</code></pre>
 <pre><code>## Registered S3 method overwritten by &#39;GGally&#39;:
 ##   method from   
 ##   +.gg   ggplot2</code></pre>
@@ -426,62 +428,65 @@ D2021 &lt;- read_sav(&quot;Divorcios/Divorcio2021.sav&quot;) # nolint</code></pr
 <h2>Descripción variables y observaciones</h2>
 <p>Comience describiendo cuantas variables y observaciones tiene
 disponibles, el tipo de cada una de las variables.</p>
-<pre class="r"><code>vars1_numéricas &lt;- sapply(D2009, is.numeric) #Analisis de divorcios 2009 # nolint
-vars2_numéricas &lt;- sapply(D2010, is.numeric) #Analisis de divorcios 2010 # nolint
-print(vars1_numéricas)</code></pre>
-<pre><code>##  Depreg  Mupreg  Mesreg  Anoreg  Diaocu  Mesocu  Anoocu  Depocu  Mupocu Edadhom 
-##    TRUE   FALSE    TRUE   FALSE    TRUE    TRUE   FALSE    TRUE   FALSE    TRUE 
-## Edadmuj  Gethom  Getmuj  Nachom  Nacmuj  Ocuhom  Ocumuj   Mever  Anover 
-##    TRUE    TRUE    TRUE    TRUE    TRUE    TRUE    TRUE    TRUE    TRUE</code></pre>
-<pre class="r"><code>print(vars2_numéricas)</code></pre>
-<pre><code>##   depreg   mupreg   mesreg   añoreg   diaocu   mesocu   añoocu   depocu 
-##     TRUE    FALSE     TRUE     TRUE     TRUE     TRUE     TRUE     TRUE 
-##   mupocu  edadhom  edadmuj  grethom  gretmuj   nachom   nacmuj  escohom 
-##    FALSE     TRUE     TRUE     TRUE     TRUE     TRUE     TRUE     TRUE 
-##  escomuj ocupahom ocupamuj 
-##     TRUE     TRUE     TRUE</code></pre>
+<p>Las bases de datos de matrimonios cuentan con diferentes cantidades
+de variables,pero las 22 más comunes son: —Para divorcios— DEPREG:
+cualitativa MUPREG: cualitativa MESREG: cualitativa AÑOREG: cuantitativa
+discreta DIAOCU: cuantitativa MESOCU: cualitativa ANOOCU: cuantitativa
+discreta DEPOCU: cualitativa MUPOCU: cualitativa EDADHOM: cuantitativa
+discreta EDADMUJ: cuantitativa discreta GETHOM: cualitativa GETMUJ:
+cualitativa NACHOM: cualitativa NACMUJ: cualitativa OCUHOM: cualitativa
+OCUMUJ: cualitativa MEVER: cualitativa ANOVER: cualitativa</p>
 </div>
-<div id="resumen-de-datos-para-verificar-si-son-numéricas" class="section level2">
-<h2>Resumen de datos para verificar si son numéricas</h2>
+<div id="resumen-de-datos" class="section level2">
+<h2>Resumen de datos</h2>
 <p>Haga un resumen de las variables numéricas e investigue si siguen una
 distribución normal y tablas de frecuencia para las variables
 categóricas, escriba lo que vaya encontrando.</p>
-<pre class="r"><code>summary(M2009)</code></pre>
-<pre><code>##      DEPREG          MUPREG              MESREG           AÑOREG      
-##  Min.   : 1.000   Length:62104       Min.   : 1.000   Min.   : 9.000  
-##  1st Qu.: 4.000   Class :character   1st Qu.: 3.000   1st Qu.: 9.000  
-##  Median :10.000   Mode  :character   Median : 6.000   Median : 9.000  
-##  Mean   : 9.728                      Mean   : 6.259   Mean   : 9.196  
-##  3rd Qu.:14.000                      3rd Qu.: 9.000   3rd Qu.: 9.000  
-##  Max.   :22.000                      Max.   :12.000   Max.   :10.000  
-##      CLAUNI     EDADHOM          EDADMUJ           GETHOM          GETMUJ     
-##  Min.   :1   Min.   : 16.00   Min.   : 14.00   Min.   :1.000   Min.   :1.000  
-##  1st Qu.:1   1st Qu.: 21.00   1st Qu.: 19.00   1st Qu.:1.000   1st Qu.:1.000  
-##  Median :1   Median : 25.00   Median : 22.00   Median :2.000   Median :2.000  
-##  Mean   :1   Mean   : 63.16   Mean   : 65.16   Mean   :3.881   Mean   :3.941  
-##  3rd Qu.:1   3rd Qu.: 32.00   3rd Qu.: 29.00   3rd Qu.:9.000   3rd Qu.:9.000  
-##  Max.   :1   Max.   :999.00   Max.   :999.00   Max.   :9.000   Max.   :9.000  
-##      NACHOM          NACMUJ        OCUHOM         OCUMUJ         NUPHON     
-##  Min.   : 30.0   Min.   : 30   Min.   : 110   Min.   : 110   Min.   : 1.00  
-##  1st Qu.:320.0   1st Qu.:320   1st Qu.:6111   1st Qu.:9711   1st Qu.: 1.00  
-##  Median :320.0   Median :320   Median :7112   Median :9711   Median :99.00  
-##  Mean   :317.6   Mean   :317   Mean   :7447   Mean   :9047   Mean   :54.58  
-##  3rd Qu.:320.0   3rd Qu.:320   3rd Qu.:9712   3rd Qu.:9712   3rd Qu.:99.00  
-##  Max.   :320.0   Max.   :320   Max.   :9999   Max.   :9999   Max.   :99.00  
-##      NUPMUJ          DEPOCU          MUPOCU              MESOCU      
-##  Min.   : 1.00   Min.   : 1.000   Length:62104       Min.   : 1.000  
-##  1st Qu.: 1.00   1st Qu.: 4.000   Class :character   1st Qu.: 3.000  
-##  Median :99.00   Median :10.000   Mode  :character   Median : 6.000  
-##  Mean   :54.65   Mean   : 9.724                      Mean   : 6.553  
-##  3rd Qu.:99.00   3rd Qu.:14.000                      3rd Qu.:10.000  
-##  Max.   :99.00   Max.   :22.000                      Max.   :12.000  
-##      AÑOOCU      AREAG  
-##  Min.   :9   Min.   :9  
-##  1st Qu.:9   1st Qu.:9  
-##  Median :9   Median :9  
-##  Mean   :9   Mean   :9  
-##  3rd Qu.:9   3rd Qu.:9  
-##  Max.   :9   Max.   :9</code></pre>
+<pre class="r"><code>#summary(M2009)
+# Crear una lista con los conjuntos de datos
+datasets &lt;- list(D2009, D2010, D2011, D2012, D2013, D2014, D2015, D2016, D2017, D2018, D2019, D2020, D2021)
+
+# Crear un bucle for para analizar cada conjunto de datos y obtener los nombres de las variables numéricas
+for (i in 1:length(datasets)) {
+  vars_numéricas &lt;- sapply(datasets[[i]], is.numeric)
+  print(names(vars_numéricas[vars_numéricas]))
+}</code></pre>
+<pre><code>##  [1] &quot;Depreg&quot;  &quot;Mesreg&quot;  &quot;Diaocu&quot;  &quot;Mesocu&quot;  &quot;Depocu&quot;  &quot;Edadhom&quot; &quot;Edadmuj&quot;
+##  [8] &quot;Gethom&quot;  &quot;Getmuj&quot;  &quot;Nachom&quot;  &quot;Nacmuj&quot;  &quot;Ocuhom&quot;  &quot;Ocumuj&quot;  &quot;Mever&quot;  
+## [15] &quot;Anover&quot; 
+##  [1] &quot;depreg&quot;   &quot;mesreg&quot;   &quot;añoreg&quot;   &quot;diaocu&quot;   &quot;mesocu&quot;   &quot;añoocu&quot;  
+##  [7] &quot;depocu&quot;   &quot;edadhom&quot;  &quot;edadmuj&quot;  &quot;grethom&quot;  &quot;gretmuj&quot;  &quot;nachom&quot;  
+## [13] &quot;nacmuj&quot;   &quot;escohom&quot;  &quot;escomuj&quot;  &quot;ocupahom&quot; &quot;ocupamuj&quot;
+##  [1] &quot;depreg&quot;   &quot;mesreg&quot;   &quot;añoreg&quot;   &quot;diaocu&quot;   &quot;mesocu&quot;   &quot;añoocu&quot;  
+##  [7] &quot;depocu&quot;   &quot;edadhom&quot;  &quot;edadmuj&quot;  &quot;grethom&quot;  &quot;gretmuj&quot;  &quot;nachom&quot;  
+## [13] &quot;nacmuj&quot;   &quot;escohom&quot;  &quot;escomuj&quot;  &quot;ocupahom&quot; &quot;ocupamuj&quot;
+##  [1] &quot;DEPREG&quot;  &quot;MESREG&quot;  &quot;AÑOREG&quot;  &quot;DIAOCU&quot;  &quot;MESOCU&quot;  &quot;DEPOCU&quot;  &quot;EDADHOM&quot;
+##  [8] &quot;EDADMUJ&quot; &quot;GETHOM&quot;  &quot;GETMUJ&quot;  &quot;NACHOM&quot;  &quot;NACMUJ&quot;  &quot;ESCHOM&quot;  &quot;ESCMUJ&quot; 
+##  [1] &quot;DEPREG&quot;  &quot;MESREG&quot;  &quot;AÑOREG&quot;  &quot;DIAOCU&quot;  &quot;MESOCU&quot;  &quot;DEPOCU&quot;  &quot;EDADHOM&quot;
+##  [8] &quot;EDADMUJ&quot; &quot;PUEHOM&quot;  &quot;PUEMUJ&quot;  &quot;NACHOM&quot;  &quot;NACMUJ&quot;  &quot;ESCHOM&quot;  &quot;ESCMUJ&quot; 
+##  [1] &quot;DEPREG&quot;  &quot;MESREG&quot;  &quot;AÑOREG&quot;  &quot;DIAOCU&quot;  &quot;MESOCU&quot;  &quot;DEPOCU&quot;  &quot;EDADHOM&quot;
+##  [8] &quot;EDADMUJ&quot; &quot;PUEHOM&quot;  &quot;PUEMUJ&quot;  &quot;NACHOM&quot;  &quot;NACMUJ&quot;  &quot;ESCHOM&quot;  &quot;ESCMUJ&quot; 
+##  [1] &quot;DEPREG&quot;  &quot;MESREG&quot;  &quot;AÑOREG&quot;  &quot;DIAOCU&quot;  &quot;MESOCU&quot;  &quot;AÑOOCU&quot;  &quot;DEPOCU&quot; 
+##  [8] &quot;EDADHOM&quot; &quot;EDADMUJ&quot; &quot;PUEHOM&quot;  &quot;PUEMUJ&quot;  &quot;NACHOM&quot;  &quot;NACMUJ&quot;  &quot;ESCHOM&quot; 
+## [15] &quot;ESCMUJ&quot;  &quot;CIUOHOM&quot; &quot;CIUOMUJ&quot;
+##  [1] &quot;DEPREG&quot;  &quot;MESREG&quot;  &quot;AÑOREG&quot;  &quot;DIAOCU&quot;  &quot;MESOCU&quot;  &quot;AÑOOCU&quot;  &quot;DEPOCU&quot; 
+##  [8] &quot;EDADHOM&quot; &quot;EDADMUJ&quot; &quot;PPERHOM&quot; &quot;PPERMUJ&quot; &quot;NACHOM&quot;  &quot;NACMUJ&quot;  &quot;ESCHOM&quot; 
+## [15] &quot;ESCMUJ&quot;  &quot;CIUOHOM&quot; &quot;CIUOMUJ&quot;
+##  [1] &quot;DEPREG&quot;  &quot;MESREG&quot;  &quot;AÑOREG&quot;  &quot;DIAOCU&quot;  &quot;MESOCU&quot;  &quot;AÑOOCU&quot;  &quot;DEPOCU&quot; 
+##  [8] &quot;EDADHOM&quot; &quot;EDADMUJ&quot; &quot;PPERHOM&quot; &quot;PPERMUJ&quot; &quot;NACHOM&quot;  &quot;NACMUJ&quot;  &quot;ESCHOM&quot; 
+## [15] &quot;ESCMUJ&quot;  &quot;CIUOHOM&quot; &quot;CIUOMUJ&quot;
+##  [1] &quot;DEPREG&quot;  &quot;MESREG&quot;  &quot;AÑOREG&quot;  &quot;DIAOCU&quot;  &quot;MESOCU&quot;  &quot;AÑOOCU&quot;  &quot;DEPOCU&quot; 
+##  [8] &quot;EDADHOM&quot; &quot;EDADMUJ&quot; &quot;PPERHOM&quot; &quot;PPERMUJ&quot; &quot;NACHOM&quot;  &quot;NACMUJ&quot;  &quot;ESCHOM&quot; 
+## [15] &quot;ESCMUJ&quot;  &quot;CIUOHOM&quot; &quot;CIUOMUJ&quot;
+##  [1] &quot;DEPREG&quot;  &quot;MESREG&quot;  &quot;AÑOREG&quot;  &quot;DIAOCU&quot;  &quot;MESOCU&quot;  &quot;AÑOOCU&quot;  &quot;DEPOCU&quot; 
+##  [8] &quot;EDADHOM&quot; &quot;EDADMUJ&quot; &quot;PPERHOM&quot; &quot;PPERMUJ&quot; &quot;NACHOM&quot;  &quot;NACMUJ&quot;  &quot;ESCHOM&quot; 
+## [15] &quot;ESCMUJ&quot;  &quot;CIUOHOM&quot; &quot;CIUOMUJ&quot;
+##  [1] &quot;DEPREG&quot;  &quot;MESREG&quot;  &quot;AÑOREG&quot;  &quot;DIAOCU&quot;  &quot;MESOCU&quot;  &quot;AÑOOCU&quot;  &quot;DEPOCU&quot; 
+##  [8] &quot;EDADHOM&quot; &quot;EDADMUJ&quot; &quot;PPERHOM&quot; &quot;PPERMUJ&quot; &quot;NACHOM&quot;  &quot;NACMUJ&quot;  &quot;ESCHOM&quot; 
+## [15] &quot;ESCMUJ&quot;  &quot;CIUOHOM&quot; &quot;CIUOMUJ&quot;
+##  [1] &quot;DEPREG&quot;  &quot;MESREG&quot;  &quot;AÑOREG&quot;  &quot;DIAOCU&quot;  &quot;MESOCU&quot;  &quot;AÑOOCU&quot;  &quot;DEPOCU&quot; 
+##  [8] &quot;EDADHOM&quot; &quot;EDADMUJ&quot; &quot;PPERHOM&quot; &quot;PPERMUJ&quot; &quot;NACHOM&quot;  &quot;NACMUJ&quot;  &quot;ESCHOM&quot; 
+## [15] &quot;ESCMUJ&quot;</code></pre>
 </div>
 <div id="variables-importantes" class="section level2">
 <h2>Variables importantes</h2>
