@@ -371,10 +371,15 @@ D2020 <- D2020 %>% mutate(CIUOMUJ = as.character(CIUOMUJ))
 D2021 <- D2021 %>% mutate(CIUOMUJ = as.character(CIUOMUJ))
 ```
 
+
+
 ```{r warning=FALSE, unload=TRUE}
 #divorcios <- bind_rows(D2009, D2010, D2011, D2012, D2013, D2014, D2015, D2016, D2017, D2018, D2019, D2020, D2021)
 
 divorcios <- bind_rows( D2012, D2013, D2014, D2015, D2016, D2017, D2018, D2019, D2020, D2021)
+
+#l = list(D2012, D2013, D2014, D2015, D2016, D2017, D2018, D2019, D2020, D2021)
+#divorcios <- do.call("rbind",l)
 ```
 
 ```{r}
@@ -475,14 +480,39 @@ qqline(divorciosEdadMuj$EDADMUJ, col="red")
 
 ### Tabla de frecuencias para el departamento de ocurrencia y representación gráfica
 ```{r}
-#divorcios$DEPOCU <- levels(divorcios$DEPOCU)[divorcios$DEPOCU]
+D2009 <- D2009 %>%
+  mutate_if(is.labelled,list(as_factor))
+D2010 <- D2010 %>%
+  mutate_if(is.labelled,list(as_factor))
+D2011 <- D2011 %>%
+  mutate_if(is.labelled,list(as_factor))
+D2012 <- D2012 %>%
+  mutate_if(is.labelled,list(as_factor))
+D2013 <- D2013 %>%
+  mutate_if(is.labelled,list(as_factor))
+D2014 <- D2014 %>%
+  mutate_if(is.labelled,list(as_factor))
+D2015 <- D2015 %>%
+  mutate_if(is.labelled,list(as_factor))
+D2016 <- D2016 %>%
+  mutate_if(is.labelled,list(as_factor))
+D2017 <- D2017 %>%
+  mutate_if(is.labelled,list(as_factor))
+D2018 <- D2018 %>%
+  mutate_if(is.labelled,list(as_factor))
+D2019 <- D2019 %>%
+  mutate_if(is.labelled,list(as_factor))
+D2020 <- D2020 %>%
+  mutate_if(is.labelled,list(as_factor))
+D2021 <- D2021 %>%
+  mutate_if(is.labelled,list(as_factor))
 
-
+divorciosLabels <- bind_rows( D2012, D2013, D2014, D2015, D2016, D2017, D2018, D2019, D2020, D2021)
 ```
 
 
 ```{r frecuenciaDepartamento, echo=FALSE}
-table(divorcios$DEPOCU)
-counts <- table(divorcios$DEPOCU)
+table(divorciosLabels$DEPOCU)
+counts <- table(divorciosLabels$DEPOCU)
 barplot(counts, las = 2, cex.names=.5 ,main = "Distribución de departamento de ocurrencia (2012 - 2021)", xlab = "Departamento de ocurrencia")
 ```
