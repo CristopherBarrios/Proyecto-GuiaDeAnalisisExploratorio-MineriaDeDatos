@@ -469,3 +469,20 @@ boxplot(divorciosEdadMuj$EDADMUJ, main = "Caja y Bigotes de edad de las mujeres 
 qqnorm(divorciosEdadMuj$EDADMUJ, col="blue")
 qqline(divorciosEdadMuj$EDADMUJ, col="red")
 ```
+
+
+## Tabla de frecuencias para variables cualitativas
+
+### Tabla de frecuencias para el departamento de ocurrencia y representación gráfica
+```{r}
+#divorcios$DEPOCU <- levels(divorcios$DEPOCU)[divorcios$DEPOCU]
+
+
+```
+
+
+```{r frecuenciaDepartamento, echo=FALSE}
+table(divorcios$DEPOCU)
+counts <- table(divorcios$DEPOCU)
+barplot(counts, las = 2, cex.names=.5 ,main = "Distribución de departamento de ocurrencia (2012 - 2021)", xlab = "Departamento de ocurrencia")
+```
