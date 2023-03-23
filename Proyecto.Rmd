@@ -193,32 +193,7 @@ ggplot(dfD, aes(x=año, y=matrimonios, group = 1)) +
 ```
 
 
-## Ocupacion en Hombre 2009-2021
-```{r normalHistEdadHombre, echo=FALSE}
-#install.packages("ggplot2",repos = "http://cran.us.r-project.org")
 
-divorcios <- bind_rows( D2012, D2013, D2014, D2015, D2016, D2017, D2018, D2019, D2020, D2021)
-
-
-library (ggplot2)
-divorciosOcupHombre <- subset(divorcios, CIUOHOM)
-
-barplot(table(divorciosOcupHombre$CIUOHOM), main = "Ocupaciones del Hombres en divorcios 2009-2021", xlab = "Ocupacion", ylab = "Cantidad", col = "steelblue" , border = "pink")
-
-```  
-
-## Escolaridad en Mujeres 2009-2021
-```{r normalHistEdadHombre, echo=FALSE}
-#install.packages("ggplot2",repos = "http://cran.us.r-project.org")
-
-divorcios <- bind_rows( D2012, D2013, D2014, D2015, D2016, D2017, D2018, D2019, D2020, D2021)
-
-library (ggplot2)
-divorciosOcupMujeres <- subset(divorcios, CIUOMUJ)
-
-barplot(table(divorciosOcupMujeres$CIUOMUJ), main = "Ocupaciones de la Mujer en divorcios 2009-2021", xlab = "Ocupacion", ylab = "Cantidad", col = "steelblue" , border = "pink")
-
-```  
 
 --------------------------------------------------------------------------------
 
@@ -320,19 +295,12 @@ barplot(table(D2021$EDADMUJ), main = "Edad de la mujer en divorcios 2021", xlab 
 ## Combinando datos
 ```{r}
 colnames(D2009) <- c("DEPREG", "MUPREG", "MESREG", "AÑOREG", "DIAOCU", "MESOCU", "AÑOOCU", "DEPOCU", "MUPOCU", "EDADHOM", "EDADMUJ", "PPERHOM", "PPERMUJ", "NACHOM", "NACMUJ", "CIUOHOM", "CIUOMUJ", "Mever", "Anover")
-
 colnames(D2010) <- c("DEPREG", "MUPREG", "MESREG", "AÑOREG", "DIAOCU", "MESOCU", "AÑOOCU", "DEPOCU", "MUPOCU", "EDADHOM", "EDADMUJ", "PPERHOM", "PPERMUJ", "NACHOM", "NACMUJ", "ESCHOM", "ESCMUJ", "CIUOHOM", "CIUOMUJ")
-
 colnames(D2011) <- c("DEPREG", "MUPREG", "MESREG", "AÑOREG", "DIAOCU", "MESOCU", "AÑOOCU", "DEPOCU", "MUPOCU", "EDADHOM", "EDADMUJ", "PPERHOM", "PPERMUJ", "NACHOM", "NACMUJ", "ESCHOM", "ESCMUJ", "CIUOHOM", "CIUOMUJ")
-
 colnames(D2012) <- c("DEPREG",  "MUPREG",  "MESREG",  "AÑOREG",  "DIAOCU",  "MESOCU",  "DEPOCU",  "MUPOCU", "EDADHOM", "EDADMUJ", "PPERHOM",  "PPERMUJ",  "NACHOM",  "NACMUJ",  "ESCHOM",  "ESCMUJ", "CIUOHOM",  "CIUOMUJ") 
-
 colnames(D2013) <- c( "DEPREG",  "MUPREG",  "MESREG",  "AÑOREG",  "DIAOCU",  "MESOCU",  "DEPOCU",  "MUPOCU",  "EDADHOM", "EDADMUJ", "PPERHOM",  "PPERMUJ",  "NACHOM",  "NACMUJ",  "ESCHOM",  "ESCMUJ",  "CIUOHOM", "CIUOMUJ")
-
 colnames(D2014) <- c( "DEPREG",  "MUPREG",  "MESREG",  "AÑOREG",  "DIAOCU",  "MESOCU",  "DEPOCU",  "MUPOCU", "EDADHOM", "EDADMUJ", "PPERHOM",  "PPERMUJ",  "NACHOM",  "NACMUJ",  "ESCHOM",  "ESCMUJ",  "CIUOHOM", "CIUOMUJ")
-
 colnames(D2015) <- c("DEPREG",  "MUPREG",  "MESREG",  "AÑOREG",  "DIAOCU",  "MESOCU",  "AÑOOCU",  "DEPOCU",  "MUPOCU",  "EDADHOM", "EDADMUJ", "PPERHOM", "PPERMUJ",  "NACHOM", "NACMUJ",  "ESCHOM",  "ESCMUJ",  "CIUOHOM", "CIUOMUJ")
-
 ```
 
 ```{r}
@@ -355,7 +323,6 @@ D2021 <- D2021 %>% mutate(AÑOREG = as.numeric(AÑOREG))
 D2009 <- D2009 %>% mutate(AÑOOCU = as.numeric(AÑOOCU))
 D2010 <- D2010 %>% mutate(AÑOOCU = as.numeric(AÑOOCU))
 D2011 <- D2011 %>% mutate(AÑOOCU = as.numeric(AÑOOCU))
-
 ```
 
 ```{r}
@@ -394,9 +361,7 @@ D2021 <- D2021 %>% mutate(CIUOMUJ = as.character(CIUOMUJ))
 
 ```{r warning=FALSE, unload=TRUE}
 #divorcios <- bind_rows(D2009, D2010, D2011, D2012, D2013, D2014, D2015, D2016, D2017, D2018, D2019, D2020, D2021)
-
 divorcios <- bind_rows( D2012, D2013, D2014, D2015, D2016, D2017, D2018, D2019, D2020, D2021)
-
 #l = list(D2012, D2013, D2014, D2015, D2016, D2017, D2018, D2019, D2020, D2021)
 #divorcios <- do.call("rbind",l)
 ```
@@ -581,7 +546,28 @@ plot(x = divorciosEdad$EDADHOM, y= divorciosEdad$EDADMUJ, xlab= "Edad del Hombre
 abline(lm(divorciosEdad$EDADMUJ ~ divorciosEdad$EDADHOM), col = "red")
 ```
 
+## Ocupacion en Hombre 2009-2021
+```{r normalHistEdadHombre1, echo=FALSE}
+#install.packages("ggplot2",repos = "http://cran.us.r-project.org")
 
+
+#library (ggplot2)
+#divorciosOcupHombre <- subset(divorciosLabels, CIUOHOM)
+
+#barplot(table(divorciosOcupHombre$CIUOHOM), main = "Ocupaciones del Hombres en divorcios 2009-2021", xlab = "Ocupacion", ylab = "Cantidad", col = "steelblue" , border = "pink")
+
+```  
+
+## ocupacion en Mujeres 2009-2021
+```{r normalHistEdadHombre2, echo=FALSE}
+#install.packages("ggplot2",repos = "http://cran.us.r-project.org")
+
+#library (ggplot2)
+#divorciosOcupMujeres <- subset(divorciosLabels, CIUOMUJ)
+
+#barplot(table(divorciosOcupMujeres$CIUOMUJ), main = "Ocupaciones de la Mujer en divorcios 2009-2021", xlab = "Ocupacion", ylab = "Cantidad", col = "steelblue" , border = "pink")
+
+```  
 ## Clustering
 Haga un agrupamiento (clustering) e interprete los resultados.
 ```{r}
@@ -604,16 +590,16 @@ plot(1:10, wss, type="b", xlab="Number of Clusters",  ylab="Within groups sum of
 ## Edad mujeres y hombres en divorcio entre 2009-2021 por medio de k-means  
 
 ```{r kmeans, echo=FALSE}
-datosClustering <- divorcios[, c("EDADHOM", "EDADMUJ", "MESREG")]
-datosNormalizados <- scale(datosClustering)
-set.seed(123)
-modeloKMeans <- kmeans(datosNormalizados, centers = 4)
-library(plotly)
-plot_ly(datosClustering, x = ~EDADHOM, y = ~EDADMUJ, z = ~MESREG, color = modeloKMeans$cluster) %>% 
-  add_markers() %>% 
-  layout(scene = list(xaxis = list(title = "Edad Hombre"),
-                      yaxis = list(title = "Edad Mujer"),
-                      zaxis = list(title = "Mes de registro")))
+#datosClusteringK <- divorcios[, c("EDADHOM", "EDADMUJ", "MESREG")]
+#datosNormalizados <- scale(datosClusteringK)
+#set.seed(123)
+#modeloKMeans <- kmeans(datosNormalizados, centers = 4)
+#library(plotly)
+#plot_ly(datosClusteringK, x = ~EDADHOM, y = ~EDADMUJ, z = ~MESREG, color = modeloKMeans$cluster) %>% 
+#  add_markers() %>% 
+#  layout(scene = list(xaxis = list(title = "Edad Hombre"),
+#                      yaxis = list(title = "Edad Mujer"),
+#                      zaxis = list(title = "Mes de registro")))
 
 ```
 
@@ -621,7 +607,7 @@ plot_ly(datosClustering, x = ~EDADHOM, y = ~EDADMUJ, z = ~MESREG, color = modelo
 
 ## Agrupamiento por medio de k-means  
 
-```{r kmeans, echo=FALSE}
+```{r kmeans2, echo=FALSE}
 library(fpc)
 datosClusteringlol <- na.omit(datosClustering)
 km<-kmeans(datosClusteringlol[,1:4],2,iter.max =100)
