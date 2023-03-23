@@ -45,8 +45,6 @@ M2019 <- read_sav("Matrimonios/Matrimonio2019.sav") # nolint
 M2020 <- read_sav("Matrimonios/Matrimonio2020.sav") # nolint
 M2021 <- read_sav("Matrimonios/Matrimonio2021.sav") # nolint
 
-
-
 ```
 Nacimiento
 ```{r}
@@ -79,8 +77,6 @@ D2018 <- read_sav("Divorcios/Divorcio2018.sav") # nolint
 D2019 <- read_sav("Divorcios/Divorcio2019.sav") # nolint
 D2020 <- read_sav("Divorcios/Divorcio2020.sav") # nolint
 D2021 <- read_sav("Divorcios/Divorcio2021.sav") # nolint
-
-
 ```
 
 
@@ -115,6 +111,7 @@ ANOVER: cualitativa
 Haga un resumen de las variables numéricas e investigue si siguen una
 distribución normal y tablas de frecuencia para las variables categóricas, escriba lo
 que vaya encontrando. 
+
 ```{r}
 #summary(M2009)
 # Crear una lista con los conjuntos de datos
@@ -126,11 +123,6 @@ for (i in 1:length(datasets)) {
   print(names(vars_numéricas[vars_numéricas]))
 }
 ```
-
-```{r}
-names(datos)
-```
-
 
 
 ## Variables importantes
@@ -168,11 +160,6 @@ Efectos de la pandemia: Ver como los divorcios y matrimonios se comportaron a pa
 
 ## Graficos exploratorios 
 Haga gráficos exploratorios que le de ideas del estado de los datos.
-```{r}
-
-```
-
-
 
 -----------------------------------------------------------------------------------------
 ## Analisis 
@@ -220,13 +207,11 @@ barplot(table(divorciosOcupHombre$CIUOHOM), main = "Ocupaciones del Hombres en d
 
 ```  
 
-
 ## Escolaridad en Mujeres 2009-2021
 ```{r normalHistEdadHombre, echo=FALSE}
 #install.packages("ggplot2",repos = "http://cran.us.r-project.org")
 
 divorcios <- bind_rows( D2012, D2013, D2014, D2015, D2016, D2017, D2018, D2019, D2020, D2021)
-
 
 library (ggplot2)
 divorciosOcupMujeres <- subset(divorcios, CIUOMUJ)
@@ -244,7 +229,6 @@ library(dplyr)
 library(ggplot2)
 
 D2009 <- subset(D2009, Edadmuj < 999)
-
 
 barplot(table(D2009$Edadmuj), main = "Edad de la mujer en divorcios 2009", xlab = "Edad", ylab = "Cantidad", col = "steelblue" , border = "pink")
 ```
@@ -408,7 +392,6 @@ D2021 <- D2021 %>% mutate(CIUOMUJ = as.character(CIUOMUJ))
 ```
 
 
-
 ```{r warning=FALSE, unload=TRUE}
 #divorcios <- bind_rows(D2009, D2010, D2011, D2012, D2013, D2014, D2015, D2016, D2017, D2018, D2019, D2020, D2021)
 
@@ -467,13 +450,11 @@ ggplot(data = divorciosEdadHom, aes(x = EDADHOM)) +
 ```  
 
 ### Diagrama de caja y bigotes
-
 ```{r normalBoxEdadHombre, echo=FALSE}
 boxplot(divorciosEdadHom$EDADHOM, main = "Caja y Bigotes de edad de los hombres al divorciarse (2012 - 2021)", xlab = "edad")
 ```
 
 ### Diagrama qqnormal
-
 ```{r normalQQEdadHombre, echo=FALSE}
 qqnorm(divorciosEdadHom$EDADHOM, col="blue")
 qqline(divorciosEdadHom$EDADHOM, col="red")
@@ -499,13 +480,11 @@ ggplot(data = divorciosEdadMuj, aes(x = EDADMUJ)) +
 ```  
 
 ### Diagrama de caja y bigotes
-
 ```{r normalBoxEdadMujer, echo=FALSE}
 boxplot(divorciosEdadMuj$EDADMUJ, main = "Caja y Bigotes de edad de las mujeres al divorciarse (2012 - 2021)", xlab = "edad")
 ```
 
 ### Diagrama qqnormal
-
 ```{r normalQQEdadMujer, echo=FALSE}
 qqnorm(divorciosEdadMuj$EDADMUJ, col="blue")
 qqline(divorciosEdadMuj$EDADMUJ, col="red")
@@ -554,7 +533,6 @@ barplot(counts, las = 2, cex.names=.5 ,main = "Distribución de departamento de 
 ```
 
 ### Tabla de frecuencias para el municipio de ocurrencia
-
 ```{r frecuenciaMunicipio, echo=FALSE}
 table(divorciosLabels$MUPOCU)
 counts <- table(divorciosLabels$MUPOCU)
@@ -571,7 +549,6 @@ barplot(counts, las = 2, cex.names=.10 ,main = "Distribución de escolaridad de 
 ```
 
 ### Tabla de frecuencias para la escolaridad de la Mujer
-
 ```{r frecuenciaEscolaridadMujer, echo=FALSE}
 
 table(divorciosLabels$ESCMUJ)
@@ -588,7 +565,6 @@ barplot(counts, las = 2, cex.names=.8 ,main = "Distribución de etnia de los hom
 ```
 
 ### Tabla de frecuencias para el grupo étnico de la mujer
-
 ```{r frecuenciaEtniaMujer, echo=FALSE}
 table(divorciosLabels$PPERMUJ)
 counts <- table(divorciosLabels$PPERMUJ)
