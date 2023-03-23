@@ -588,3 +588,64 @@ for (i in 2:10)
   wss[i] <- sum(kmeans(data_omit[,1:4], centers=i)$withinss)
 plot(1:10, wss, type="b", xlab="Number of Clusters",  ylab="Within groups sum of squares")
 ```
+
+## Agrupamiento por medio de k-means  
+
+```{r kmeans, echo=FALSE}
+library(fpc)
+datosClusteringlol <- na.omit(datosClustering)
+km<-kmeans(datosClusteringlol[,1:4],2,iter.max =100)
+datosClusteringlol$grupo<-km$cluster
+plotcluster(datosClusteringlol[,1:4],km$cluster)
+gkm1<- datosClusteringlol[datosClusteringlol$grupo==1,]
+gkm2<- datosClusteringlol[datosClusteringlol$grupo==2,]
+
+```
+
+
+## Mixture of gaussians
+
+```{r gaussians, echo = FALSE}
+library(mclust)
+mc<-Mclust(datosClusteringlol[,1:4],2)
+plot(mc, what = "classification", main="MClust Classification")
+datosClusteringlol$mxGau<-mc$classification
+g1PMC<-datosClusteringlol[datosClusteringlol$mxGau==1,]
+g2PMC<-datosClusteringlol[datosClusteringlol$mxGau==2,]
+
+```
+
+## Fuzzy C-means
+
+```{r fuzzy2, echo=FALSE}
+library(e1071)
+library(cluster)
+set.seed(123)
+fcmf<-cmeans(datosClusteringlol[,1:4],2)
+datosClusteringlol$FCGrupos<-fcmf$cluster
+g1FCM <- datosClusteringlol[datosClusteringlol$FCGrupos == 1,]
+g2FCM <- datosClusteringlol[datosClusteringlol$FCGrupos == 2,]
+
+clusplot(datosClusteringlol, fcmf$cluster, color=TRUE, shade = TRUE, labels = 2,lines = 0)
+
+library(fpc)
+plotcluster(datosClusteringlol,fcmf$cluster)
+```
+
+```{r analisis de cada grupo kmeans, echo=FALSE}
+summary(gkm1)
+summary(gkm2)
+
+```
+
+```{r analisis de cada grupo mixture gaussians, echo=FALSE}
+summary(g1PMC)
+summary(g2PMC)
+
+```
+
+```{r analisis de cada grupo fuzzy c means, echo=FALSE}
+summary(g1FCM)
+summary(g2FCM)
+
+```
