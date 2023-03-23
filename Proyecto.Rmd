@@ -127,6 +127,11 @@ for (i in 1:length(datasets)) {
 }
 ```
 
+```{r}
+names(datos)
+```
+
+
 
 ## Variables importantes
 Cruce las variables que considere que son las más importantes para hallar los
@@ -170,7 +175,7 @@ Haga gráficos exploratorios que le de ideas del estado de los datos.
 
 
 -----------------------------------------------------------------------------------------
-## Analisis
+## Analisis 
 
 ```{r}
   EdadMujD2009 <- sum(D2009$Edadmuj)
@@ -199,6 +204,36 @@ ggplot(dfD, aes(x=año, y=matrimonios, group = 1)) +
   geom_line(color="green") +
   labs(x = "Año", y = "Divorcios", title = "Divorcios")
 ```
+
+
+## Ocupacion en Hombre 2009-2021
+```{r normalHistEdadHombre, echo=FALSE}
+#install.packages("ggplot2",repos = "http://cran.us.r-project.org")
+
+divorcios <- bind_rows( D2012, D2013, D2014, D2015, D2016, D2017, D2018, D2019, D2020, D2021)
+
+
+library (ggplot2)
+divorciosOcupHombre <- subset(divorcios, CIUOHOM)
+
+barplot(table(divorciosOcupHombre$CIUOHOM), main = "Ocupaciones del Hombres en divorcios 2009-2021", xlab = "Ocupacion", ylab = "Cantidad", col = "steelblue" , border = "pink")
+
+```  
+
+
+## Escolaridad en Mujeres 2009-2021
+```{r normalHistEdadHombre, echo=FALSE}
+#install.packages("ggplot2",repos = "http://cran.us.r-project.org")
+
+divorcios <- bind_rows( D2012, D2013, D2014, D2015, D2016, D2017, D2018, D2019, D2020, D2021)
+
+
+library (ggplot2)
+divorciosOcupMujeres <- subset(divorcios, CIUOMUJ)
+
+barplot(table(divorciosOcupMujeres$CIUOMUJ), main = "Ocupaciones de la Mujer en divorcios 2009-2021", xlab = "Ocupacion", ylab = "Cantidad", col = "steelblue" , border = "pink")
+
+```  
 
 --------------------------------------------------------------------------------
 
@@ -298,7 +333,7 @@ D2021 <- subset(D2021, EDADMUJ < 999)
 barplot(table(D2021$EDADMUJ), main = "Edad de la mujer en divorcios 2021", xlab = "Edad", ylab = "Cantidad", col = "steelblue" , border = "pink")
 ```
 --------------------------------------------------------------------------
-## Convinando datos
+## Combinando datos
 ```{r}
 colnames(D2009) <- c("DEPREG", "MUPREG", "MESREG", "AÑOREG", "DIAOCU", "MESOCU", "AÑOOCU", "DEPOCU", "MUPOCU", "EDADHOM", "EDADMUJ", "PPERHOM", "PPERMUJ", "NACHOM", "NACMUJ", "CIUOHOM", "CIUOMUJ", "Mever", "Anover")
 
@@ -588,6 +623,25 @@ for (i in 2:10)
   wss[i] <- sum(kmeans(data_omit[,1:4], centers=i)$withinss)
 plot(1:10, wss, type="b", xlab="Number of Clusters",  ylab="Within groups sum of squares")
 ```
+
+
+## Edad mujeres y hombres en divorcio entre 2009-2021 por medio de k-means  
+
+```{r kmeans, echo=FALSE}
+datosClustering <- divorcios[, c("EDADHOM", "EDADMUJ", "MESREG")]
+datosNormalizados <- scale(datosClustering)
+set.seed(123)
+modeloKMeans <- kmeans(datosNormalizados, centers = 4)
+library(plotly)
+plot_ly(datosClustering, x = ~EDADHOM, y = ~EDADMUJ, z = ~MESREG, color = modeloKMeans$cluster) %>% 
+  add_markers() %>% 
+  layout(scene = list(xaxis = list(title = "Edad Hombre"),
+                      yaxis = list(title = "Edad Mujer"),
+                      zaxis = list(title = "Mes de registro")))
+
+```
+
+
 
 ## Agrupamiento por medio de k-means  
 
