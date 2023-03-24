@@ -10,6 +10,7 @@ Creado por:
 
 [PDF - Proyecto](./Proyecto.pdf)
 
+Favor de verlo en html ya que en pdf no estan todas las graficas
 [HTML - Proyecto](./Proyecto.html)
 
 [RMD - Codigo](./Proyecto.Rmd)
