@@ -13,6 +13,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 librerias
 ```{r, echo=FALSE}
+library(plotly)
 library(haven)
 library(stats)
 library(dplyr)
@@ -612,28 +613,7 @@ plot(x = divorciosEdad$EDADHOM, y= divorciosEdad$EDADMUJ, xlab= "Edad del Hombre
 abline(lm(divorciosEdad$EDADMUJ ~ divorciosEdad$EDADHOM), col = "red")
 ```
 
-## Ocupacion en Hombre 2009-2021
-```{r normalHistEdadHombre1, echo=FALSE}
-#install.packages("ggplot2",repos = "http://cran.us.r-project.org")
 
-
-#library (ggplot2)
-#divorciosOcupHombre <- subset(divorciosLabels, CIUOHOM)
-
-#barplot(table(divorciosOcupHombre$CIUOHOM), main = "Ocupaciones del Hombres en divorcios 2009-2021", xlab = "Ocupacion", ylab = "Cantidad", col = "steelblue" , border = "pink")
-
-```  
-
-## ocupacion en Mujeres 2009-2021
-```{r normalHistEdadHombre2, echo=FALSE}
-#install.packages("ggplot2",repos = "http://cran.us.r-project.org")
-
-#library (ggplot2)
-#divorciosOcupMujeres <- subset(divorciosLabels, CIUOMUJ)
-
-#barplot(table(divorciosOcupMujeres$CIUOMUJ), main = "Ocupaciones de la Mujer en divorcios 2009-2021", xlab = "Ocupacion", ylab = "Cantidad", col = "steelblue" , border = "pink")
-
-```  
 ## Clustering
 Haga un agrupamiento (clustering) e interprete los resultados.
 ```{r}
@@ -656,16 +636,16 @@ plot(1:10, wss, type="b", xlab="Number of Clusters",  ylab="Within groups sum of
 ## Edad mujeres y hombres en divorcio entre 2009-2021 por medio de k-means  
 
 ```{r kmeans, echo=FALSE}
-#datosClusteringK <- divorcios[, c("EDADHOM", "EDADMUJ", "MESREG")]
-#datosNormalizados <- scale(datosClusteringK)
-#set.seed(123)
-#modeloKMeans <- kmeans(datosNormalizados, centers = 4)
-#library(plotly)
-#plot_ly(datosClusteringK, x = ~EDADHOM, y = ~EDADMUJ, z = ~MESREG, color = modeloKMeans$cluster) %>% 
-#  add_markers() %>% 
-#  layout(scene = list(xaxis = list(title = "Edad Hombre"),
-#                      yaxis = list(title = "Edad Mujer"),
-#                      zaxis = list(title = "Mes de registro")))
+datosClusteringK <- divorcios[, c("EDADHOM", "EDADMUJ", "MESREG")]
+datosNormalizados <- scale(datosClusteringK)
+set.seed(123)
+modeloKMeans <- kmeans(datosNormalizados, centers = 4)
+library(plotly)
+plot_ly(datosClusteringK, x = ~EDADHOM, y = ~EDADMUJ, z = ~MESREG, color = modeloKMeans$cluster) %>% 
+  add_markers() %>% 
+  layout(scene = list(xaxis = list(title = "Edad Hombre"),
+                      yaxis = list(title = "Edad Mujer"),
+                      zaxis = list(title = "Mes de registro")))
 
 ```
 
