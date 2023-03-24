@@ -160,6 +160,7 @@ Haga gráficos exploratorios que le de ideas del estado de los datos.
 -----------------------------------------------------------------------------------------
 ## Analisis 
 
+## Divorcios
 ```{r}
   EdadMujD2009 <- sum(D2009$Edadmuj)
   EdadMujD2010 <- sum(D2010$edadmuj)
@@ -186,6 +187,64 @@ ggplot(dfD, aes(x=año, y=matrimonios, group = 1)) +
   geom_point(size = 2, color = "green") + 
   geom_line(color="green") +
   labs(x = "Año", y = "Divorcios", title = "Divorcios")
+```
+
+## Matrimonios
+```{r}
+  EdadMujM2009 <- sum(M2009$Edadmuj)
+  EdadMujM2010 <- sum(M2010$edadmuj)
+  EdadMujM2011 <- sum(M2011$edadmuj)
+  EdadMujM2012 <- sum(M2012$EDADMUJ)
+  EdadMujM2013 <- sum(M2013$EDADMUJ)
+  EdadMujM2014 <- sum(M2014$EDADMUJ)
+  EdadMujM2015 <- sum(M2015$EDADMUJ)
+  EdadMujM2016 <- sum(M2016$EDADMUJ)
+  EdadMujM2017 <- sum(M2017$EDADMUJ)
+  EdadMujM2018 <- sum(M2018$EDADMUJ)
+  EdadMujM2019 <- sum(M2019$EDADMUJ)
+  EdadMujM2020 <- sum(M2020$EDADMUJ)
+  EdadMujM2021 <- sum(M2021$EDADMUJ)
+```
+
+```{r}
+dfD <- data.frame (año  = c("2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017","2018","2019","2020","2021"), matrimonios = c(EdadMujM2009, EdadMujM2010, EdadMujM2011, EdadMujM2012, EdadMujM2013, EdadMujM2014, EdadMujM2015, EdadMujM2016, EdadMujM2017, EdadMujM2018, EdadMujM2019, EdadMujM2020, EdadMujM2021))
+print(dfD)
+```
+
+```{r}
+ggplot(dfD, aes(x=año, y=matrimonios, group = 1)) + 
+  geom_point(size = 2, color = "green") + 
+  geom_line(color="green") +
+  labs(x = "Año", y = "Matrimonios", title = "Matrimonios")
+```
+
+## Nacimientos
+```{r}
+  EdadMujN2009 <- sum(N2009$Edadm)
+  EdadMujN2010 <- sum(N2010$Edadm)
+  EdadMujN2011 <- sum(N2011$Edadm)
+  EdadMujN2012 <- sum(N2012$Edadm)
+  EdadMujN2013 <- sum(N2013$Edadm)
+  EdadMujN2014 <- sum(N2014$Edadm)
+  EdadMujN2015 <- sum(N2015$Edadm)
+  EdadMujN2016 <- sum(N2016$Edadm)
+  EdadMujN2017 <- sum(N2017$Edadm)
+  EdadMujN2018 <- sum(N2018$Edadm)
+  EdadMujN2019 <- sum(N2019$Edadm)
+  EdadMujN2020 <- sum(N2020$Edadm)
+  EdadMujN2021 <- sum(N2021$Edadm)
+```
+
+```{r}
+dNac <- data.frame (año  = c("2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017","2018","2019","2020","2021"), matrimonios = c(EdadMujN2009, EdadMujN2010, EdadMujN2011, EdadMujN2012, EdadMujN2013, EdadMujN2014, EdadMujN2015, EdadMujN2016, EdadMujN2017, EdadMujN2018, EdadMujN2019, EdadMujN2020, EdadMujN2021))
+print(dNac)
+```
+
+```{r}
+ggplot(dNac, aes(x=año, y=matrimonios, group = 1)) + 
+  geom_point(size = 2, color = "green") + 
+  geom_line(color="green") +
+  labs(x = "Año", y = "Nacimientos", title = "Nacimientos")
 ```
 
 
