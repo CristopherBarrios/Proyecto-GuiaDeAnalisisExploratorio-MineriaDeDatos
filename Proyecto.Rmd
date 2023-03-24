@@ -3,8 +3,8 @@ title: "Proyect"
 author: 'Cristopher Barrios, Elean Rivas, Angel Higueros, Mariana David '
 date: "16/2/2023"
 output:
-  pdf_document: default
   html_document: default
+  pdf_document: default
 ---
 
 ```{r setup, include=FALSE}
@@ -44,7 +44,6 @@ M2018 <- read_sav("Matrimonios/Matrimonio2018.sav") # nolint
 M2019 <- read_sav("Matrimonios/Matrimonio2019.sav") # nolint
 M2020 <- read_sav("Matrimonios/Matrimonio2020.sav") # nolint
 M2021 <- read_sav("Matrimonios/Matrimonio2021.sav") # nolint
-
 ```
 Nacimiento
 ```{r}
@@ -116,7 +115,6 @@ que vaya encontrando.
 #summary(M2009)
 # Crear una lista con los conjuntos de datos
 datasets <- list(D2009, D2010, D2011, D2012, D2013, D2014, D2015, D2016, D2017, D2018, D2019, D2020, D2021)
-
 # Crear un bucle for para analizar cada conjunto de datos y obtener los nombres de las variables numéricas
 for (i in 1:length(datasets)) {
   vars_numéricas <- sapply(datasets[[i]], is.numeric)
@@ -137,7 +135,6 @@ NUNUMU:"Número de nupcias de la mujer"
 
 ```{r}
 M2021[, c(7, 8)]
-
 ```
 
 Saber si una persona ha estado previamente casada y si esto influye en la posibilidad de divorcio, cómo hipotesis se espera que las personas que han tenido más de dos nupcias antes, son más propensas al divorcio
@@ -147,7 +144,6 @@ Edadmuj: "Edad de la mujer"
 
 ```{r}
 D2021[, c(10, 11)]
-
 ```
 
 La edad puede ser un dato interesante a explorar, esto para saber si los jovenes tienen más tendencia a casarse o divorcioarse y si los matrimonios más duraderos tienen menos divorcios
@@ -202,93 +198,79 @@ ggplot(dfD, aes(x=año, y=matrimonios, group = 1)) +
 ```{r}
 library(dplyr)
 library(ggplot2)
-
 D2009 <- subset(D2009, Edadmuj < 999)
-
 barplot(table(D2009$Edadmuj), main = "Edad de la mujer en divorcios 2009", xlab = "Edad", ylab = "Cantidad", col = "steelblue" , border = "pink")
 ```
 
 2010
 ```{r}
 D2010 <- subset(D2010, edadmuj < 999)
-
 barplot(table(D2010$edadmuj), main = "Edad de la mujer en divorcios 2010", xlab = "Edad", ylab = "Cantidad", col = "steelblue" , border = "pink")
 ```
 
 2011
 ```{r}
 D2011 <- subset(D2011, edadmuj < 999)
-
 barplot(table(D2011$edadmuj), main = "Edad de la mujer en divorcios 2011", xlab = "Edad", ylab = "Cantidad", col = "steelblue" , border = "pink")
 ```
 
 2012
 ```{r}
 D2012 <- subset(D2012, EDADMUJ < 999)
-
 barplot(table(D2012$EDADMUJ), main = "Edad de la mujer en divorcios 2012", xlab = "Edad", ylab = "Cantidad", col = "steelblue" , border = "pink")
 ```
 
 2013
 ```{r}
 D2013 <- subset(D2013, EDADMUJ < 999)
-
 barplot(table(D2013$EDADMUJ), main = "Edad de la mujer en divorcios 2013", xlab = "Edad", ylab = "Cantidad", col = "steelblue" , border = "pink")
 ```
 
 2014
 ```{r}
 D2014 <- subset(D2014, EDADMUJ < 999)
-
 barplot(table(D2014$EDADMUJ), main = "Edad de la mujer en divorcios 2014", xlab = "Edad", ylab = "Cantidad", col = "steelblue" , border = "pink")
 ```
 
 2015
 ```{r}
 D2015 <- subset(D2015, EDADMUJ < 999)
-
 barplot(table(D2015$EDADMUJ), main = "Edad de la mujer en divorcios 2015", xlab = "Edad", ylab = "Cantidad", col = "steelblue" , border = "pink")
 ```
 
 2016
 ```{r}
 D2016 <- subset(D2016, EDADMUJ < 999)
-
 barplot(table(D2016$EDADMUJ), main = "Edad de la mujer en divorcios 2016", xlab = "Edad", ylab = "Cantidad", col = "steelblue" , border = "pink")
 ```
 
 2017
 ```{r}
 D2017 <- subset(D2017, EDADMUJ < 999)
-
 barplot(table(D2017$EDADMUJ), main = "Edad de la mujer en divorcios 2017", xlab = "Edad", ylab = "Cantidad", col = "steelblue" , border = "pink")
 ```
 
 2018
 ```{r}
 D2018 <- subset(D2018, EDADMUJ < 999)
-
 barplot(table(D2018$EDADMUJ), main = "Edad de la mujer en divorcios 2018", xlab = "Edad", ylab = "Cantidad", col = "steelblue" , border = "pink")
 ```
 
 2019
 ```{r}
 D2019 <- subset(D2019, EDADMUJ < 999)
-
 barplot(table(D2019$EDADMUJ), main = "Edad de la mujer en divorcios 2019", xlab = "Edad", ylab = "Cantidad", col = "steelblue" , border = "pink")
 ```
 
 2020
 ```{r}
 D2020 <- subset(D2020, EDADMUJ < 999)
-
 barplot(table(D2020$EDADMUJ), main = "Edad de la mujer en divorcios 2020", xlab = "Edad", ylab = "Cantidad", col = "steelblue" , border = "pink")
 ```
 
 2021
 ```{r}
 D2021 <- subset(D2021, EDADMUJ < 999)
-
 barplot(table(D2021$EDADMUJ), main = "Edad de la mujer en divorcios 2021", xlab = "Edad", ylab = "Cantidad", col = "steelblue" , border = "pink")
 ```
 --------------------------------------------------------------------------
@@ -381,7 +363,6 @@ ggplot(data = divorcios, aes(x = AÑOREG)) +
                             sd = sd(divorcios$AÑOREG)))+
   ggtitle("Histograma con curva normal teórica de los registros de divorcios por año ") + 
   theme_bw()
-
 ```  
 
 
@@ -403,7 +384,6 @@ qqline(divorcios$AÑOREG, col="red")
 #install.packages("ggplot2",repos = "http://cran.us.r-project.org")
 library (ggplot2)
 divorciosEdadHom <- subset(divorcios, EDADHOM < 999)
-
 ggplot(data = divorciosEdadHom, aes(x = EDADHOM)) + 
   geom_histogram(aes(y=..density.., fill = ..count..))+
   scale_fill_gradient(low = "#DCDCDC", high = "#7C7C7C")+
@@ -433,7 +413,6 @@ qqline(divorciosEdadHom$EDADHOM, col="red")
 #install.packages("ggplot2",repos = "http://cran.us.r-project.org")
 library (ggplot2)
 divorciosEdadMuj <- subset(divorcios, EDADMUJ < 999)
-
 ggplot(data = divorciosEdadMuj, aes(x = EDADMUJ)) + 
   geom_histogram(aes(y=..density.., fill = ..count..))+
   scale_fill_gradient(low = "#DCDCDC", high = "#7C7C7C")+
@@ -486,7 +465,6 @@ D2020 <- D2020 %>%
   mutate_if(is.labelled,list(as_factor))
 D2021 <- D2021 %>%
   mutate_if(is.labelled,list(as_factor))
-
 divorciosLabels <- bind_rows( D2012, D2013, D2014, D2015, D2016, D2017, D2018, D2019, D2020, D2021)
 ```
 
@@ -515,7 +493,6 @@ barplot(counts, las = 2, cex.names=.10 ,main = "Distribución de escolaridad de 
 
 ### Tabla de frecuencias para la escolaridad de la Mujer
 ```{r frecuenciaEscolaridadMujer, echo=FALSE}
-
 table(divorciosLabels$ESCMUJ)
 counts <- table(divorciosLabels$ESCMUJ)
 barplot(counts, las = 2, cex.names=.10 ,main = "Distribución de escolaridad de las mujeres (2012 - 2021)", xlab = "Escolaridad de las mujeres")
@@ -523,7 +500,6 @@ barplot(counts, las = 2, cex.names=.10 ,main = "Distribución de escolaridad de 
 
 ### Tabla de frecuencias para el grupo étnico del hombre
 ```{r frecuenciaEtniaHombre, echo=FALSE}
-
 table(divorciosLabels$PPERHOM)
 counts <- table(divorciosLabels$PPERHOM)
 barplot(counts, las = 2, cex.names=.8 ,main = "Distribución de etnia de los hombres (2012 - 2021)", xlab = "Etnia del hombre")
@@ -541,7 +517,6 @@ barplot(counts, las = 2, cex.names=.8 ,main = "Distribución de etnia de las muj
 ```{r CorrelacionEdades, echo=FALSE}
 divorciosEdad <- subset(divorcios, EDADMUJ < 999)
 divorciosEdad <- subset(divorciosEdad, EDADHOM < 999)
-
 plot(x = divorciosEdad$EDADHOM, y= divorciosEdad$EDADMUJ, xlab= "Edad del Hombre", ylab= "Edad de la mujer", main = "Correlación entre las edades de los cónyuges (2012 - 2021)")
 abline(lm(divorciosEdad$EDADMUJ ~ divorciosEdad$EDADHOM), col = "red")
 ```
@@ -549,24 +524,17 @@ abline(lm(divorciosEdad$EDADMUJ ~ divorciosEdad$EDADHOM), col = "red")
 ## Ocupacion en Hombre 2009-2021
 ```{r normalHistEdadHombre1, echo=FALSE}
 #install.packages("ggplot2",repos = "http://cran.us.r-project.org")
-
-
 #library (ggplot2)
 #divorciosOcupHombre <- subset(divorciosLabels, CIUOHOM)
-
 #barplot(table(divorciosOcupHombre$CIUOHOM), main = "Ocupaciones del Hombres en divorcios 2009-2021", xlab = "Ocupacion", ylab = "Cantidad", col = "steelblue" , border = "pink")
-
 ```  
 
 ## ocupacion en Mujeres 2009-2021
 ```{r normalHistEdadHombre2, echo=FALSE}
 #install.packages("ggplot2",repos = "http://cran.us.r-project.org")
-
 #library (ggplot2)
 #divorciosOcupMujeres <- subset(divorciosLabels, CIUOMUJ)
-
 #barplot(table(divorciosOcupMujeres$CIUOMUJ), main = "Ocupaciones de la Mujer en divorcios 2009-2021", xlab = "Ocupacion", ylab = "Cantidad", col = "steelblue" , border = "pink")
-
 ```  
 ## Clustering
 Haga un agrupamiento (clustering) e interprete los resultados.
@@ -575,7 +543,6 @@ divorcios$AÑOOCU <- as.numeric(factor(divorcios$AÑOOCU))
 datosClustering <- divorcios[,c("AÑOREG","EDADHOM","EDADMUJ","AÑOOCU")]
 data_omit <- na.omit(datosClustering) 
 summary(datosClustering)
-
 ```
 
 
@@ -600,7 +567,6 @@ plot(1:10, wss, type="b", xlab="Number of Clusters",  ylab="Within groups sum of
 #  layout(scene = list(xaxis = list(title = "Edad Hombre"),
 #                      yaxis = list(title = "Edad Mujer"),
 #                      zaxis = list(title = "Mes de registro")))
-
 ```
 
 
@@ -615,7 +581,6 @@ datosClusteringlol$grupo<-km$cluster
 plotcluster(datosClusteringlol[,1:4],km$cluster)
 gkm1<- datosClusteringlol[datosClusteringlol$grupo==1,]
 gkm2<- datosClusteringlol[datosClusteringlol$grupo==2,]
-
 ```
 
 
@@ -628,7 +593,6 @@ plot(mc, what = "classification", main="MClust Classification")
 datosClusteringlol$mxGau<-mc$classification
 g1PMC<-datosClusteringlol[datosClusteringlol$mxGau==1,]
 g2PMC<-datosClusteringlol[datosClusteringlol$mxGau==2,]
-
 ```
 
 ## Fuzzy C-means
@@ -641,9 +605,7 @@ fcmf<-cmeans(datosClusteringlol[,1:4],2)
 datosClusteringlol$FCGrupos<-fcmf$cluster
 g1FCM <- datosClusteringlol[datosClusteringlol$FCGrupos == 1,]
 g2FCM <- datosClusteringlol[datosClusteringlol$FCGrupos == 2,]
-
 clusplot(datosClusteringlol, fcmf$cluster, color=TRUE, shade = TRUE, labels = 2,lines = 0)
-
 library(fpc)
 plotcluster(datosClusteringlol,fcmf$cluster)
 ```
@@ -651,17 +613,33 @@ plotcluster(datosClusteringlol,fcmf$cluster)
 ```{r analisis de cada grupo kmeans, echo=FALSE}
 summary(gkm1)
 summary(gkm2)
-
 ```
 
 ```{r analisis de cada grupo mixture gaussians, echo=FALSE}
 summary(g1PMC)
 summary(g2PMC)
-
 ```
 
 ```{r analisis de cada grupo fuzzy c means, echo=FALSE}
 summary(g1FCM)
 summary(g2FCM)
+```
 
+## Evaluación de la tendencia de agrupamiento:
+
+### En hombres
+
+```{r Evaluacion de la tendencia de agrupamiento:cluster jerarquico, echo=FALSE}
+clarax <- clara(divorciosEdadMuj$EDADMUJ , 2)
+# Cluster plot
+  
+plot(silhouette(clarax),  col = 2:3, main = "Silhouette plot")  
+```
+
+### En mujeres
+
+```{r elegir los algoritmos de agrupación apropiados, echo=FALSE}
+clorax <- clara(divorciosEdadHom$EDADHOM , 2)
+# Cluster plot
+plot(silhouette(clorax),  col = 2:3, main = "Silhouette plot")
 ```
