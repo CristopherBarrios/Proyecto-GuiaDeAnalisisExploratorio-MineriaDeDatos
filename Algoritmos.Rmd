@@ -1,0 +1,211 @@
+---
+title: "Algoritmos"
+author: 'Cristopher Barrios, Elean Rivas, Angel Higueros, Mariana David '
+date: "16/2/2023"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r echo=FALSE}
+defaultW <- getOption("warn")
+options(warn = -1)
+```
+
+```{r, echo=FALSE, include=FALSE}
+library(cluster) #Para calcular la silueta
+library(e1071)#para cmeans
+library(mclust) #mixtures of gaussians
+library(fpc) #para hacer el plotcluster
+library(NbClust) #Para determinar el n?mero de clusters ?ptimo
+library(factoextra) #Para hacer gr?ficos bonitos de clustering
+library(rpart)
+library(caret)
+library(tree)
+library(rpart.plot)
+library(ggplot2)
+library(randomForest)
+library(tidyverse)
+library(DataExplorer)
+library(reshape2)
+library(grid)
+library(corrplot)
+```
+
+```{r echo=FALSE}
+load("dataframe.RData")
+```
+
+```{r echo=FALSE}
+divorciosDFdepar <- divorcios_anio_mes_departamento
+```
+
+## Resultados del proyecto
+
+
+
+#### Grafica de codos de divorcios por departamento por mes
+``` {r echo=FALSE}
+datosDepar <- select(divorciosDFdepar,Total,Guatemala,El.Progreso,Sacatepequez,Chimaltenango,
+                Escuintla,Santa.Rosa,Solola,Totonicapan,Quetzaltenango,Suchitepequez,
+                Retalhuleu,San.Marcos,Huehuetenango,Quiche,Baja.Verapaz,Alta.Verapaz,
+                Peten,Izabal,Zacapa,Chiquimula,Jalapa,Jutiapa)
+
+scaledDataDepar <- as.matrix(scale(datosDepar))
+k.max  <- 15
+wssDepar <- sapply(1:k.max, 
+              function(k){kmeans(datosDepar,k,iter.max = 100 )$tot.withinss})
+plot(1:k.max,wssDepar,
+        type="b",
+        xlab="No. clusters",
+        ylab="No. Suma de cuadrados")
+```
+
+
+#### Numero de Clusters (Divorcios por departamento por mes)
+``` {r echo=FALSE}
+kmDepar<-kmeans(scaledDataDepar, 3, iter.max = 100)
+fviz_cluster(kmDepar, data = scaledDataDepar, frame.type = "convex")
+```
+
+#### Aplicacion de clusters a Data Inicial y Separacion de grupos
+``` {r echo=FALSE}
+set.seed(314)
+divorciosDFdepar$Categoria <- kmDepar$cluster
+
+groupOne <- divorciosDFdepar[divorciosDFdepar$Categoria == "Demanda baja",]
+groupTwo <- divorciosDFdepar[divorciosDFdepar$Categoria == "Demanda media",]
+groupThree <- divorciosDFdepar[divorciosDFdepar$Categoria == "Demanda alta",]
+```
+
+
+#### Grafica de Silueta (Divorcios por departamento por mes)
+``` {r echo=FALSE}
+dis = dist(scaledDataDepar)^2
+sil = silhouette(kmDepar$cluster,dis)
+dev.new(width=5,height=8,noRStudioGD = TRUE,unit="in")
+
+silkm<-silhouette(kmDepar$cluster,dist(divorciosDFdepar[,1:22])^2)
+mean(2*silkm[,3]) 
+
+```
+
+#### Aplicacion de Naive Bayes (Divorcios por departamento por mes)
+``` {r echo=FALSE}
+porcentaje <- 0.7
+
+divorciosDFdepar1 <- divorciosDFdepar[,3:25]
+divorciosDFdepar1$Categoria <- ifelse(divorciosDFdepar1$Categoria == 1, "Demanda baja", ifelse(divorciosDFdepar1$Categoria == 2, "Demanda media", ifelse(divorciosDFdepar1$Categoria == 3, "Demanda alta", 0)))
+
+divorciosDFdepar1$Categoria <- factor(divorciosDFdepar1$Categoria)                                
+
+corteDepar <- sample(nrow(divorciosDFdepar1),nrow(divorciosDFdepar1)*porcentaje)
+trainDepar<-divorciosDFdepar1[corteDepar,]
+testDepar<-divorciosDFdepar1[-corteDepar,]
+
+modeloDepar<-naiveBayes(trainDepar$Categoria~.,data=trainDepar)
+
+predBayesDepar<-predict(modeloDepar, newdata = testDepar[,1:22])
+
+cmDepar <- caret::confusionMatrix(predBayesDepar, testDepar$Categoria)
+#ctDepar <- trainControl(method = "cv", number = 10, verboseIter = TRUE)
+ctDepar <- trainControl(method = "cv", number = 10, verboseIter = TRUE)
+
+
+#ctDepar <- trainControl(method = "cv",trainDepar[,1:22],number=10, verboseIter=T)
+modeloCaretDepar <- train(Categoria~.,data=trainDepar,method="nb",trControl = ctDepar)
+prediccionCaretDepar <- predict(modeloCaretDepar,newdata = testDepar[,1:22])
+caret::confusionMatrix(prediccionCaretDepar,testDepar$Categoria)
+```
+
+#### Aplicacion de Arboles de Decision (Divorcios por departamento por mes)
+```{r echo=FALSE}
+corteDepar <- sample(nrow(divorciosDFdepar1),nrow(divorciosDFdepar1)*porcentaje)
+trainDepar<-divorciosDFdepar1[corteDepar,]
+testDepar<-divorciosDFdepar1[-corteDepar,]
+
+arbolModeloDepar <- rpart(Categoria~., divorciosDFdepar1, method = "class")
+rpart.plot(arbolModeloDepar)
+
+#arbolModelo<-rpart(Species~.,datos,method = "class")
+#rpart.plot(arbolModelo)
+
+View(testDepar)
+prediccion <- predict(arbolModeloDepar, newdata = testDepar[,1:22])
+
+#prediccion <- predict(dt_model, newdata = test[1:4])
+
+columnaMasAlta <- apply(prediccion, 1, function(x) colnames(prediccion)[which.max(x)])
+columnaMasAlta
+testDepar$prediccion <- columnaMasAlta
+View(testDepar)
+#Apply: Para cada fila, determina el nombre de la columna del valor mÃ¡ximo entre los tres valores de una fila
+#columnaMasAlta<-apply(prediccion, 1, function(x) colnames(prediccion)[which.max(x)])
+#test$prediccion<-columnaMasAlta #Se le aÃ±ade al grupo de prueba el valor de la predicciÃ³n
+
+
+cfm <- confusionMatrix(as.factor(testDepar$prediccion),testDepar$Categoria)
+cfm
+
+
+modeloRF1 <- randomForest(Categoria~.,data=trainDepar)
+prediccionRF1 <- predict(modeloRF1,newdata = testDepar[,1:22])
+testCompleto<-testDepar
+testCompleto$predRF<-prediccionRF1
+cfmRandomForest <- confusionMatrix(testCompleto$predRF, testCompleto$Categoria)
+cfmRandomForest
+```
+
+#### Aplicacion de SVM (Divorcios por departamento por mes)
+
+```{r}
+library(caret)
+
+
+set.seed(123)  
+porcentaje <- 0.7
+corteDepar <- sample(nrow(divorciosDFdepar1), nrow(divorciosDFdepar1) * porcentaje)
+trainDepar <- divorciosDFdepar1[corteDepar, ]
+testDepar <- divorciosDFdepar1[-corteDepar, ]
+
+modeloSVM <- train(Categoria ~ ., data = trainDepar, method = "svmLinear", trControl = trainControl(method = "cv", number = 10))
+
+prediccionSVM <- predict(modeloSVM, newdata = testDepar[, 1:22])
+
+# Generar la matriz de confusión
+cmSVM <- confusionMatrix(prediccionSVM, testDepar$Categoria)
+
+cmSVM
+```
+
+
+#### Aplicacion de RANdomForest (Divorcios por departamento por mes)
+
+```{r}
+library(caret)
+
+set.seed(123)  
+porcentaje <- 0.7
+corteDepar <- sample(nrow(divorciosDFdepar1), nrow(divorciosDFdepar1) * porcentaje)
+trainDepar <- divorciosDFdepar1[corteDepar, ]
+testDepar <- divorciosDFdepar1[-corteDepar, ]
+
+modeloRF <- train(Categoria ~ ., data = trainDepar, method = "rf", trControl = trainControl(method = "cv", number = 10))
+
+prediccionRF <- predict(modeloRF, newdata = testDepar[, 1:22])
+
+# Generar la matriz de confusión
+cmRF <- confusionMatrix(prediccionRF, testDepar$Categoria)
+cmRF
+```
+
+
+
+
+```{r echo=FALSE, include=FALSE}
+options(warn = defaultW)
+```
