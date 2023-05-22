@@ -12,7 +12,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 librerias
-```{r, echo=FALSE}
+```{r message=FALSE, warning=FALSE}
 library(haven)
 library(stats)
 library(dplyr)
@@ -751,3 +751,288 @@ clorax <- clara(divorciosEdadHom$EDADHOM , 2)
 # Cluster plot
 plot(silhouette(clorax),  col = 2:3, main = "Silhouette plot")
 ```
+
+# Predicciones
+divorciosLabels
+
+```{r}
+# str(divorciosLabels)
+```
+
+```{r Clasificatión, echo=TRUE}
+
+# divorciosLabels$EDADMUJ <- as.numeric(as.character(divorciosLabels$EDADMUJ))  # Convierte a numérico
+# divorciosLabels$clasification <- ifelse(divorciosLabels$EDADMUJ <= 17, "Menor", ifelse(divorciosLabels$EDADMUJ >= 18, "Mayor", NA))
+# 
+# print(unique(divorciosLabels$clasification)) # Imprime los valores únicos de la columna "clasification"
+# divorciosLabels$y <- factor(divorciosLabels$clasification)
+# 
+# str(divorciosLabels) # Verifica la estructura de los datos nuevamente
+
+```
+
+```{r}
+# divorciosLabels$EDADHOM <- as.numeric(as.character(divorciosLabels$EDADHOM))
+# divorciosLabels$EDADMUJ <- as.numeric(as.character(divorciosLabels$EDADMUJ))
+# 
+#  datosMDD <- divorciosLabels %>% filter(EDADMUJ >= 12)
+#  datosMDD <- datosMDD %>% filter(EDADHOM >= 14)
+#  datosMDD <- datosMDD[,-20]
+#  datosMDD <- datosMDD[,-10]
+#  datosMDD <- datosMDD[complete.cases(datosMDD), ]
+# 
+#  str(datosMDD)
+#  
+# datosMDD$DEPREG <- as.factor(datosMDD$DEPREG)
+# datosMDD$MUPREG <- as.factor(datosMDD$MUPREG)
+# datosMDD$MESREG <- as.factor(datosMDD$MESREG)
+# datosMDD$AÑOREG <- as.factor(datosMDD$AÑOREG)
+# datosMDD$DIAOCU <- as.factor(datosMDD$DIAOCU)
+# datosMDD$MESOCU <- as.factor(datosMDD$MESOCU)
+# datosMDD$DEPOCU <- as.factor(datosMDD$DEPOCU)
+# datosMDD$MUPOCU <- as.factor(datosMDD$MUPOCU)
+# datosMDD$EDADHOM <- as.factor(datosMDD$EDADHOM)
+# datosMDD$PPERHOM <- as.factor(datosMDD$PPERHOM)
+# datosMDD$PPERMUJ <- as.factor(datosMDD$PPERMUJ)
+# datosMDD$NACHOM <- as.factor(datosMDD$NACHOM)
+# datosMDD$NACMUJ <- as.factor(datosMDD$NACMUJ)
+# datosMDD$ESCHOM <- as.factor(datosMDD$ESCHOM)
+# datosMDD$ESCMUJ <- as.factor(datosMDD$ESCMUJ)
+# datosMDD$CIUOHOM <- as.factor(datosMDD$CIUOHOM)
+# datosMDD$CIUOMUJ <- as.factor(datosMDD$CIUOMUJ)
+# datosMDD$AÑOOCU <- as.factor(datosMDD$AÑOOCU)
+# 
+# str(datosMDD)
+```
+
+```{r delvars, echo=TRUE}
+#  datosMDD <- datosMDD[,c(5,6,7,8,9,10,15,16,17,18,19)]
+#  porciento <- 70/100
+#  set.seed(123)
+#  trainRowsNumber<-sample(nrow(datosMDD),porciento*nrow(datosMDD))
+#  train<-datosMDD[trainRowsNumber,]
+#  test<-datosMDD[-trainRowsNumber,]
+#  
+# str(datosMDD)
+```
+-----------------------------------------------------------------
+```{r}
+divorcios <- subset(divorcios, EDADHOM < 999)
+divorcios <- subset(divorcios, EDADMUJ < 999)
+str(divorcios)
+
+```
+
+```{r Clasificación, echo=FALSE}
+divorcios$EDADMUJ <- as.numeric(as.character(divorcios$EDADMUJ))  # Convierte a numérico
+divorcios$clasification <- ifelse(divorcios$EDADMUJ <= 17, "Menor", ifelse(divorcios$EDADMUJ >= 18, "Mayor", NA))
+
+print(unique(divorcios$clasification)) # Imprime los valores únicos de la columna "clasification"
+divorcios$y <- factor(divorcios$clasification)
+```
+
+```{r}
+divorcios$EDADHOM <- as.numeric(as.character(divorcios$EDADHOM))
+divorcios$EDADMUJ <- as.numeric(as.character(divorcios$EDADMUJ))
+
+ datosMD <- divorcios %>% filter(EDADMUJ >= 12)
+ datosMD <- datosMD %>% filter(EDADHOM >= 14)
+ datosMD <- datosMD[,-20]
+ datosMD <- datosMD[,-10]
+ datosMD <- datosMD[complete.cases(datosMD), ]
+
+ 
+datosMD$DEPREG <- as.factor(datosMD$DEPREG)
+datosMD$MUPREG <- as.factor(datosMD$MUPREG)
+datosMD$MESREG <- as.factor(datosMD$MESREG)
+datosMD$AÑOREG <- as.factor(datosMD$AÑOREG)
+datosMD$DIAOCU <- as.factor(datosMD$DIAOCU)
+datosMD$MESOCU <- as.factor(datosMD$MESOCU)
+datosMD$DEPOCU <- as.factor(datosMD$DEPOCU)
+datosMD$MUPOCU <- as.factor(datosMD$MUPOCU)
+datosMD$EDADHOM <- as.factor(datosMD$EDADHOM)
+datosMD$PPERHOM <- as.factor(datosMD$PPERHOM)
+datosMD$PPERMUJ <- as.factor(datosMD$PPERMUJ)
+datosMD$NACHOM <- as.factor(datosMD$NACHOM)
+datosMD$NACMUJ <- as.factor(datosMD$NACMUJ)
+datosMD$ESCHOM <- as.factor(datosMD$ESCHOM)
+datosMD$ESCMUJ <- as.factor(datosMD$ESCMUJ)
+datosMD$CIUOHOM <- as.factor(datosMD$CIUOHOM)
+datosMD$CIUOMUJ <- as.factor(datosMD$CIUOMUJ)
+datosMD$AÑOOCU <- as.factor(datosMD$AÑOOCU)
+
+```
+
+
+
+```{r delvar, echo=TRUE}
+ datosMD <- datosMD[,c(5,6,7,8,9,10,15,16,17,18,19)]
+ porciento <- 70/100
+ set.seed(123)
+ trainRowsNumber<-sample(nrow(datosMD),porciento*nrow(datosMD))
+ train<-datosMD[trainRowsNumber,]
+ test<-datosMD[-trainRowsNumber,]
+ 
+str(datosMD)
+
+```
+
+
+
+Eliminando para liberar memoria
+```{r}
+rm(clarax)
+rm(clorax)
+rm(D2009)
+rm(D2010)
+rm(D2011)
+rm(D2012)
+rm(D2013)
+rm(D2014)
+rm(D2015)
+rm(D2016)
+rm(D2017)
+rm(D2018)
+rm(D2019)
+rm(D2020)
+rm(D2021)
+rm(data_omit)
+rm(datasets)
+rm(datosClustering)
+rm(datosClusteringlol)
+rm(dfD)
+rm(dNac)
+rm(fcmf)
+rm(g1FCM)
+rm(g1PMC)
+rm(g2FCM)
+rm(g2PMC)
+rm(gkm1)
+rm(gkm2)
+rm(km)
+rm(M2009)
+rm(M2010)
+rm(M2011)
+rm(M2012)
+rm(M2013)
+rm(M2014)
+rm(M2015)
+rm(M2016)
+rm(M2017)
+rm(M2018)
+rm(M2019)
+rm(M2020)
+rm(M2021)
+rm(mc)
+rm(N2009)
+rm(N2010)
+rm(N2011)
+rm(N2012)
+rm(N2013)
+rm(N2014)
+rm(N2015)
+rm(N2016)
+rm(N2017)
+rm(N2018)
+rm(N2019)
+rm(N2020)
+rm(N2021)
+
+```
+
+
+## Algoritmos
+
+
+### Predicción por medio de Naive Bayes
+```{r bayesLabels, echo=TRUE, results = "hide"}
+withCallingHandlers({
+  suppressPackageStartupMessages(library(caret))
+  suppressWarnings({
+    library(RWeka)
+    modelo <- naiveBayes(train$y ~ ., data = train)
+    predBayes <- predict(modelo, newdata = train[, 1:11])
+  })
+}, warning = function(w) {
+  if (grepl("package 'RWeka' was built under R version", w$message))
+    return(NULL)
+  else
+    invokeRestart("muffleWarning")
+})
+
+
+```
+
+```{r}
+cm<- caret::confusionMatrix(predBayes,train$y)
+cm
+```
+
+```{r}
+predBayesM <- predict(modelo, newdata = test[,1:11])
+test$PredBayes <- predBayesM
+cm <- caret::confusionMatrix(test$PredBayes, test$y)
+cm
+```
+
+## Prediccion por redes neuronales: RWEKA
+
+
+```{r message=FALSE, warning=FALSE, results = "hide"}
+#datosML <- lapply(datosMDD, as.factor)
+#install.packages("RWeka")
+library (caret)
+library(RWeka)
+NB <- make_Weka_classifier("weka/classifiers/functions/MultilayerPerceptron")
+NB
+WOW(NB)
+nnodos='11'
+modelo.bp<-NB(datosMD$y~., data=datosMD,subset = trainRowsNumber, control=Weka_control(H=nnodos, N=1, G=TRUE), options=NULL)
+test$prediccionWeka<-predict(modelo.bp, newdata = test[,1:11])
+```
+
+```{r }
+cfmWeka<-confusionMatrix(test$prediccionWeka,test$y)
+cfmWeka
+```
+
+## Prediccion por medio de árboles de decisión
+```{r results = "hide"}
+library(caret)
+trainData <- train[, 1:11]
+trainLabels <- train$y
+ct <- trainControl(method = "cv", number = 10, verboseIter = TRUE)
+modelorf <- suppressWarnings(train(x = trainData, y = trainLabels, method = "rpart", trControl = ct))
+prediccionADVC <- suppressWarnings(predict(modelorf, newdata = test[, 1:11]))
+test$predADVC <- prediccionADVC
+```
+
+```{r}
+cfmCaret <- confusionMatrix(test$predADVC, test$y)
+cfmCaret
+```
+
+```{r}
+library(e1071)
+
+# Crear modelo SVM
+model_svm <- svm(y ~ ., data = train)
+predictions_svm <- predict(model_svm, newdata = test)
+confusionMatrix(predictions_svm, test$y)
+
+
+```
+
+```{r}
+library(rpart)
+
+# Crear modelo Árbol de Decisión
+model_tree <- rpart(y ~ ., data = train)
+predictions_tree <- predict(model_tree, newdata = test, type = "class")
+confusionMatrix(predictions_tree, test$y)
+
+```
+
+
+
+
