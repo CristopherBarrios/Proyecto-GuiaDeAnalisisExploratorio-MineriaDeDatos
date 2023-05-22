@@ -1,0 +1,34 @@
+library(e1071)
+
+naive_bayes_func <- function() {
+  # Cargar los datos
+  load("dataframe.RData")
+
+  divorciosDFdepar <- divorcios_anio_mes_departament
+
+  # Transformar los datos
+  divorciosDFdepar$Diferencia <- c(0, diff(divorciosDFdepar$Total))
+  divorciosDFdepar$Etiqueta <- ifelse(divorciosDFdepar$Diferencia > 0, "Aumento",
+                                        ifelse(divorciosDFdepar$Diferencia < 0, "Disminución", "Igual"))
+
+  # Divididir los datos en conjuntos de entrenamiento y prueba
+  set.seed(123)
+  indices <- sample(1:nrow(divorciosDFdepar), nrow(divorciosDFdepar) * 0.8)
+  train <- divorciosDFdepar[indices, ]
+  test <- divorciosDFdepar[-indices, ]
+
+  # Entrenar el modelo de Naive Bayes
+  modelo <- naiveBayes(Etiqueta ~ ., data = train)
+
+  # Hacer las predicciones
+  predicciones <- predict(modelo, test)
+
+  # Construir la matriz de confusión
+  matriz_confusion <- table(test$Etiqueta, predicciones)
+  
+  # Devolver el modelo y la matriz de confusión
+  return(list(modelo = modelo, matriz_confusion = matriz_confusion))
+}
+
+resultado <- naive_bayes_func()
+print(resultado$matriz_confusion)
