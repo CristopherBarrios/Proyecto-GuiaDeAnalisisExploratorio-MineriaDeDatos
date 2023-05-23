@@ -1,0 +1,59 @@
+#model is not working yet
+
+```{r echo=FALSE}
+# Step 1: Load the necessary libraries
+library(forecast)
+```
+```{r echo=FALSE}
+load("dataframe.RData")
+```
+```{r echo=FALSE}
+divorciosDFdepar <- divorcios_anio_mes_departamento
+```
+
+
+```{r echo=FALSE}
+str(divorciosDFdepar)
+head(divorciosDFdepar)
+```
+
+
+# Step 3: Explore the data
+# Plot the time series data
+```{r echo=FALSE}
+plot(divorciosDFdepar$date, divorciosDFdepar$divorces, type = 'l', xlab = 'Mes', ylab = 'Divorcios', main = 'Divorces a través del tiempo')
+```
+
+# Step 4: Account for Pandemic Impact
+# Create a binary variable indicating the presence of the pandemic
+```{r echo=FALSE}
+divorciosDFdepar$pandemic <- ifelse(divorciosDFdepar$date >= as.Date('Marzo 2021'), 1, 0)
+```
+# Step 5: Model Selection and Estimation
+# Fit an ARIMA model with exogenous variable (pandemic)
+```{r echo=FALSE}
+model <- auto.arima(divorciosDFdepar$divorces, xreg = divorciosDFdepar$pandemic)
+```
+# Step 6: Model Evaluation
+# Split the data into training and testing sets
+```{r echo=FALSE}
+
+train_data <- window(divorciosDFdepar$divorces, end = c(year(divorciosDFdepar$date)[length(divorciosDFdepar$date)-12], month(divorciosDFdepar$date)[length(data$date)-12]))
+test_data <- window(divorciosDFdepar$divorces, start = c(year(divorciosDFdepar$date)[length(divorciosDFdepar$date)-11], month(divorciosDFdepar$date)[length(divorciosDFdepar$date)-11]))
+# Fit the ARIMA model to the training data
+model <- auto.arima(train_data, xreg = window(divorciosDFdepar$pandemic, end = length(train_data)))
+# Generate forecasts for the testing set
+forecasts <- forecast(model, xreg = window(divorciosDFdepar$pandemic, start = length(train_data) + 1))
+# Evaluate the model performance
+accuracy(forecasts, test_data)
+```
+
+# Step 7: Forecasting
+# Fit the ARIMA model to the entire data
+```{r echo=FALSE}
+model <- auto.arima(divorciosDFdepar$divorces, xreg = divorciosDFdepar$pandemic)
+# Generate forecasts for the desired time horizon
+future_forecasts <- forecast(model, xreg = rep(1, 12))  # Forecasting for the next 12 months
+# Print the forecasted values
+print(future_forecasts)
+```
