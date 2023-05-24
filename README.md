@@ -6,12 +6,26 @@ Creado por:
 - Angel Leonel Higueros Cifuentes
 - Elean
 
+ --------------------- 
+
 [Instrucciones](./Proyecto.AnálisisExploratorio.2023.pdf)
 
+#### HTML y PDF
 [PDF - Proyecto](./Proyecto.pdf)
-
-Favor de verlo en html ya que en pdf no estan todas las graficas
 
 [HTML - Proyecto](./Proyecto.html)
 
+[PDF - Algoritmos](./Algoritmos.pdf)
+
+[HTML - Algoritmos](./Algoritmos.html)
+
+#### Codigo
+
 [RMD - Codigo](./Proyecto.Rmd)
+
+[RMD - Algoritmos](./Algoritmos.Rmd)
+
+### Preceso de la data
+
+[R - dataframe](./dataframe.R)
+

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.3.23)  24 MAR 2023 10:08
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.3.23)  24 MAR 2023 12:08
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -383,8 +383,7 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 28
 File: l3backend-pdftex.def 2023-01-16 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count301
 \l__pdf_internal_box=\box62
-)
-No file Proyecto.aux.
+) (./Proyecto.aux)
 \openout1 = `Proyecto.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 120.
@@ -446,6 +445,7 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 Package hyperref Info: Link coloring OFF on input line 120.
+(./Proyecto.out) (./Proyecto.out)
 \@outlinefile=\write4
 \openout4 = `Proyecto.out'.
 
@@ -488,7 +488,7 @@ File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <10> not available
 (Font)              Font shape `T1/lmtt/b/n' tried instead on input line 278.
 [3] [4]
-<Proyecto_files/figure-latex/unnamed-chunk-10-1.pdf, id=34, 469.755pt x 325.215pt>
+<Proyecto_files/figure-latex/unnamed-chunk-10-1.pdf, id=155, 469.755pt x 325.215pt>
 File: Proyecto_files/figure-latex/unnamed-chunk-10-1.pdf Graphic file (type pdf)
 <use Proyecto_files/figure-latex/unnamed-chunk-10-1.pdf>
 Package pdftex.def Info: Proyecto_files/figure-latex/unnamed-chunk-10-1.pdf  used on input line 417.
@@ -497,94 +497,90 @@ LaTeX Font Info:    Trying to load font information for TS1+lmtt on input line 4
 (c:/Users/cjrba/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ts1lmtt.fd
 File: ts1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-<Proyecto_files/figure-latex/unnamed-chunk-13-1.pdf, id=35, 469.755pt x 325.215pt>
+<Proyecto_files/figure-latex/unnamed-chunk-13-1.pdf, id=156, 469.755pt x 325.215pt>
 File: Proyecto_files/figure-latex/unnamed-chunk-13-1.pdf Graphic file (type pdf)
 <use Proyecto_files/figure-latex/unnamed-chunk-13-1.pdf>
 Package pdftex.def Info: Proyecto_files/figure-latex/unnamed-chunk-13-1.pdf  used on input line 429.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-<Proyecto_files/figure-latex/unnamed-chunk-16-1.pdf, id=36, 469.755pt x 325.215pt>
+<Proyecto_files/figure-latex/unnamed-chunk-16-1.pdf, id=157, 469.755pt x 325.215pt>
 File: Proyecto_files/figure-latex/unnamed-chunk-16-1.pdf Graphic file (type pdf)
 <use Proyecto_files/figure-latex/unnamed-chunk-16-1.pdf>
 Package pdftex.def Info: Proyecto_files/figure-latex/unnamed-chunk-16-1.pdf  used on input line 435.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-
-Package longtable Warning: Column widths have changed
-(longtable)                in table 1 on input line 437.
-
 [5] [6{c:/Users/cjrba/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc} <./Proyecto_files/figure-latex/unnamed-chunk-10-1.pdf>] [7 <./Proyecto_files/figure-latex/unnamed-chunk-13-1.pdf>]
-<Proyecto_files/figure-latex/unnamed-chunk-17-1.pdf, id=64, 469.755pt x 325.215pt>
+<Proyecto_files/figure-latex/unnamed-chunk-17-1.pdf, id=185, 469.755pt x 325.215pt>
 File: Proyecto_files/figure-latex/unnamed-chunk-17-1.pdf Graphic file (type pdf)
 <use Proyecto_files/figure-latex/unnamed-chunk-17-1.pdf>
 Package pdftex.def Info: Proyecto_files/figure-latex/unnamed-chunk-17-1.pdf  used on input line 455.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 [8 <./Proyecto_files/figure-latex/unnamed-chunk-16-1.pdf>]
-<Proyecto_files/figure-latex/unnamed-chunk-18-1.pdf, id=76, 469.755pt x 325.215pt>
+<Proyecto_files/figure-latex/unnamed-chunk-18-1.pdf, id=196, 469.755pt x 325.215pt>
 File: Proyecto_files/figure-latex/unnamed-chunk-18-1.pdf Graphic file (type pdf)
 <use Proyecto_files/figure-latex/unnamed-chunk-18-1.pdf>
 Package pdftex.def Info: Proyecto_files/figure-latex/unnamed-chunk-18-1.pdf  used on input line 467.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 [9 <./Proyecto_files/figure-latex/unnamed-chunk-17-1.pdf>]
-<Proyecto_files/figure-latex/unnamed-chunk-19-1.pdf, id=87, 469.755pt x 325.215pt>
+<Proyecto_files/figure-latex/unnamed-chunk-19-1.pdf, id=207, 469.755pt x 325.215pt>
 File: Proyecto_files/figure-latex/unnamed-chunk-19-1.pdf Graphic file (type pdf)
 <use Proyecto_files/figure-latex/unnamed-chunk-19-1.pdf>
 Package pdftex.def Info: Proyecto_files/figure-latex/unnamed-chunk-19-1.pdf  used on input line 479.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 [10 <./Proyecto_files/figure-latex/unnamed-chunk-18-1.pdf>]
-<Proyecto_files/figure-latex/unnamed-chunk-20-1.pdf, id=98, 469.755pt x 325.215pt>
+<Proyecto_files/figure-latex/unnamed-chunk-20-1.pdf, id=218, 469.755pt x 325.215pt>
 File: Proyecto_files/figure-latex/unnamed-chunk-20-1.pdf Graphic file (type pdf)
 <use Proyecto_files/figure-latex/unnamed-chunk-20-1.pdf>
 Package pdftex.def Info: Proyecto_files/figure-latex/unnamed-chunk-20-1.pdf  used on input line 491.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 [11 <./Proyecto_files/figure-latex/unnamed-chunk-19-1.pdf>]
-<Proyecto_files/figure-latex/unnamed-chunk-21-1.pdf, id=109, 469.755pt x 325.215pt>
+<Proyecto_files/figure-latex/unnamed-chunk-21-1.pdf, id=229, 469.755pt x 325.215pt>
 File: Proyecto_files/figure-latex/unnamed-chunk-21-1.pdf Graphic file (type pdf)
 <use Proyecto_files/figure-latex/unnamed-chunk-21-1.pdf>
 Package pdftex.def Info: Proyecto_files/figure-latex/unnamed-chunk-21-1.pdf  used on input line 503.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 [12 <./Proyecto_files/figure-latex/unnamed-chunk-20-1.pdf>]
-<Proyecto_files/figure-latex/unnamed-chunk-22-1.pdf, id=120, 469.755pt x 325.215pt>
+<Proyecto_files/figure-latex/unnamed-chunk-22-1.pdf, id=240, 469.755pt x 325.215pt>
 File: Proyecto_files/figure-latex/unnamed-chunk-22-1.pdf Graphic file (type pdf)
 <use Proyecto_files/figure-latex/unnamed-chunk-22-1.pdf>
 Package pdftex.def Info: Proyecto_files/figure-latex/unnamed-chunk-22-1.pdf  used on input line 515.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 [13 <./Proyecto_files/figure-latex/unnamed-chunk-21-1.pdf>]
-<Proyecto_files/figure-latex/unnamed-chunk-23-1.pdf, id=132, 469.755pt x 325.215pt>
+<Proyecto_files/figure-latex/unnamed-chunk-23-1.pdf, id=252, 469.755pt x 325.215pt>
 File: Proyecto_files/figure-latex/unnamed-chunk-23-1.pdf Graphic file (type pdf)
 <use Proyecto_files/figure-latex/unnamed-chunk-23-1.pdf>
 Package pdftex.def Info: Proyecto_files/figure-latex/unnamed-chunk-23-1.pdf  used on input line 527.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 [14 <./Proyecto_files/figure-latex/unnamed-chunk-22-1.pdf>]
-<Proyecto_files/figure-latex/unnamed-chunk-24-1.pdf, id=143, 469.755pt x 325.215pt>
+<Proyecto_files/figure-latex/unnamed-chunk-24-1.pdf, id=263, 469.755pt x 325.215pt>
 File: Proyecto_files/figure-latex/unnamed-chunk-24-1.pdf Graphic file (type pdf)
 <use Proyecto_files/figure-latex/unnamed-chunk-24-1.pdf>
 Package pdftex.def Info: Proyecto_files/figure-latex/unnamed-chunk-24-1.pdf  used on input line 539.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 [15 <./Proyecto_files/figure-latex/unnamed-chunk-23-1.pdf>]
-<Proyecto_files/figure-latex/unnamed-chunk-25-1.pdf, id=155, 469.755pt x 325.215pt>
+<Proyecto_files/figure-latex/unnamed-chunk-25-1.pdf, id=274, 469.755pt x 325.215pt>
 File: Proyecto_files/figure-latex/unnamed-chunk-25-1.pdf Graphic file (type pdf)
 <use Proyecto_files/figure-latex/unnamed-chunk-25-1.pdf>
 Package pdftex.def Info: Proyecto_files/figure-latex/unnamed-chunk-25-1.pdf  used on input line 551.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 [16 <./Proyecto_files/figure-latex/unnamed-chunk-24-1.pdf>]
-<Proyecto_files/figure-latex/unnamed-chunk-26-1.pdf, id=166, 469.755pt x 325.215pt>
+<Proyecto_files/figure-latex/unnamed-chunk-26-1.pdf, id=285, 469.755pt x 325.215pt>
 File: Proyecto_files/figure-latex/unnamed-chunk-26-1.pdf Graphic file (type pdf)
 <use Proyecto_files/figure-latex/unnamed-chunk-26-1.pdf>
 Package pdftex.def Info: Proyecto_files/figure-latex/unnamed-chunk-26-1.pdf  used on input line 563.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 [17 <./Proyecto_files/figure-latex/unnamed-chunk-25-1.pdf>]
-<Proyecto_files/figure-latex/unnamed-chunk-27-1.pdf, id=177, 469.755pt x 325.215pt>
+<Proyecto_files/figure-latex/unnamed-chunk-27-1.pdf, id=296, 469.755pt x 325.215pt>
 File: Proyecto_files/figure-latex/unnamed-chunk-27-1.pdf Graphic file (type pdf)
 <use Proyecto_files/figure-latex/unnamed-chunk-27-1.pdf>
 Package pdftex.def Info: Proyecto_files/figure-latex/unnamed-chunk-27-1.pdf  used on input line 575.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 [18 <./Proyecto_files/figure-latex/unnamed-chunk-26-1.pdf>]
-<Proyecto_files/figure-latex/unnamed-chunk-28-1.pdf, id=188, 469.755pt x 325.215pt>
+<Proyecto_files/figure-latex/unnamed-chunk-28-1.pdf, id=307, 469.755pt x 325.215pt>
 File: Proyecto_files/figure-latex/unnamed-chunk-28-1.pdf Graphic file (type pdf)
 <use Proyecto_files/figure-latex/unnamed-chunk-28-1.pdf>
 Package pdftex.def Info: Proyecto_files/figure-latex/unnamed-chunk-28-1.pdf  used on input line 587.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 [19 <./Proyecto_files/figure-latex/unnamed-chunk-27-1.pdf>]
-<Proyecto_files/figure-latex/unnamed-chunk-29-1.pdf, id=200, 469.755pt x 325.215pt>
+<Proyecto_files/figure-latex/unnamed-chunk-29-1.pdf, id=319, 469.755pt x 325.215pt>
 File: Proyecto_files/figure-latex/unnamed-chunk-29-1.pdf Graphic file (type pdf)
 <use Proyecto_files/figure-latex/unnamed-chunk-29-1.pdf>
 Package pdftex.def Info: Proyecto_files/figure-latex/unnamed-chunk-29-1.pdf  used on input line 600.
@@ -620,130 +616,130 @@ Overfull \hbox (2.7436pt too wide) in paragraph at lines 760--760
  []
 
 [23]
-<Proyecto_files/figure-latex/normalHist-1.pdf, id=233, 469.755pt x 325.215pt>
+<Proyecto_files/figure-latex/normalHist-1.pdf, id=351, 469.755pt x 325.215pt>
 File: Proyecto_files/figure-latex/normalHist-1.pdf Graphic file (type pdf)
 <use Proyecto_files/figure-latex/normalHist-1.pdf>
 Package pdftex.def Info: Proyecto_files/figure-latex/normalHist-1.pdf  used on input line 771.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-<Proyecto_files/figure-latex/unnamed-chunk-37-1.pdf, id=234, 469.755pt x 325.215pt>
+<Proyecto_files/figure-latex/unnamed-chunk-37-1.pdf, id=352, 469.755pt x 325.215pt>
 File: Proyecto_files/figure-latex/unnamed-chunk-37-1.pdf Graphic file (type pdf)
 <use Proyecto_files/figure-latex/unnamed-chunk-37-1.pdf>
 Package pdftex.def Info: Proyecto_files/figure-latex/unnamed-chunk-37-1.pdf  used on input line 779.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 [24 <./Proyecto_files/figure-latex/normalHist-1.pdf>]
-<Proyecto_files/figure-latex/normalQQ-1.pdf, id=245, 469.755pt x 325.215pt>
+<Proyecto_files/figure-latex/normalQQ-1.pdf, id=363, 469.755pt x 325.215pt>
 File: Proyecto_files/figure-latex/normalQQ-1.pdf Graphic file (type pdf)
 <use Proyecto_files/figure-latex/normalQQ-1.pdf>
 Package pdftex.def Info: Proyecto_files/figure-latex/normalQQ-1.pdf  used on input line 784.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 [25 <./Proyecto_files/figure-latex/unnamed-chunk-37-1.pdf>]
-<Proyecto_files/figure-latex/normalHistEdadHombre-1.pdf, id=258, 469.755pt x 325.215pt>
+<Proyecto_files/figure-latex/normalHistEdadHombre-1.pdf, id=376, 469.755pt x 325.215pt>
 File: Proyecto_files/figure-latex/normalHistEdadHombre-1.pdf Graphic file (type pdf)
 <use Proyecto_files/figure-latex/normalHistEdadHombre-1.pdf>
 Package pdftex.def Info: Proyecto_files/figure-latex/normalHistEdadHombre-1.pdf  used on input line 799.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 [26 <./Proyecto_files/figure-latex/normalQQ-1.pdf>]
-<Proyecto_files/figure-latex/normalBoxEdadHombre-1.pdf, id=275, 469.755pt x 325.215pt>
+<Proyecto_files/figure-latex/normalBoxEdadHombre-1.pdf, id=390, 469.755pt x 325.215pt>
 File: Proyecto_files/figure-latex/normalBoxEdadHombre-1.pdf Graphic file (type pdf)
 <use Proyecto_files/figure-latex/normalBoxEdadHombre-1.pdf>
 Package pdftex.def Info: Proyecto_files/figure-latex/normalBoxEdadHombre-1.pdf  used on input line 805.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 [27 <./Proyecto_files/figure-latex/normalHistEdadHombre-1.pdf>]
-<Proyecto_files/figure-latex/normalQQEdadHombre-1.pdf, id=287, 469.755pt x 325.215pt>
+<Proyecto_files/figure-latex/normalQQEdadHombre-1.pdf, id=402, 469.755pt x 325.215pt>
 File: Proyecto_files/figure-latex/normalQQEdadHombre-1.pdf Graphic file (type pdf)
 <use Proyecto_files/figure-latex/normalQQEdadHombre-1.pdf>
 Package pdftex.def Info: Proyecto_files/figure-latex/normalQQEdadHombre-1.pdf  used on input line 810.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 [28 <./Proyecto_files/figure-latex/normalBoxEdadHombre-1.pdf>]
-<Proyecto_files/figure-latex/normalHistEdadMuje-1.pdf, id=301, 469.755pt x 325.215pt>
+<Proyecto_files/figure-latex/normalHistEdadMuje-1.pdf, id=414, 469.755pt x 325.215pt>
 File: Proyecto_files/figure-latex/normalHistEdadMuje-1.pdf Graphic file (type pdf)
 <use Proyecto_files/figure-latex/normalHistEdadMuje-1.pdf>
 Package pdftex.def Info: Proyecto_files/figure-latex/normalHistEdadMuje-1.pdf  used on input line 826.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 [29 <./Proyecto_files/figure-latex/normalQQEdadHombre-1.pdf>]
-<Proyecto_files/figure-latex/normalBoxEdadMujer-1.pdf, id=317, 469.755pt x 325.215pt>
+<Proyecto_files/figure-latex/normalBoxEdadMujer-1.pdf, id=427, 469.755pt x 325.215pt>
 File: Proyecto_files/figure-latex/normalBoxEdadMujer-1.pdf Graphic file (type pdf)
 <use Proyecto_files/figure-latex/normalBoxEdadMujer-1.pdf>
 Package pdftex.def Info: Proyecto_files/figure-latex/normalBoxEdadMujer-1.pdf  used on input line 832.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 [30 <./Proyecto_files/figure-latex/normalHistEdadMuje-1.pdf>]
-<Proyecto_files/figure-latex/normalQQEdadMujer-1.pdf, id=329, 469.755pt x 325.215pt>
+<Proyecto_files/figure-latex/normalQQEdadMujer-1.pdf, id=439, 469.755pt x 325.215pt>
 File: Proyecto_files/figure-latex/normalQQEdadMujer-1.pdf Graphic file (type pdf)
 <use Proyecto_files/figure-latex/normalQQEdadMujer-1.pdf>
 Package pdftex.def Info: Proyecto_files/figure-latex/normalQQEdadMujer-1.pdf  used on input line 837.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 [31 <./Proyecto_files/figure-latex/normalBoxEdadMujer-1.pdf>] [32 <./Proyecto_files/figure-latex/normalQQEdadMujer-1.pdf>]
-<Proyecto_files/figure-latex/frecuenciaDepartamento-1.pdf, id=358, 469.755pt x 325.215pt>
+<Proyecto_files/figure-latex/frecuenciaDepartamento-1.pdf, id=465, 469.755pt x 325.215pt>
 File: Proyecto_files/figure-latex/frecuenciaDepartamento-1.pdf Graphic file (type pdf)
 <use Proyecto_files/figure-latex/frecuenciaDepartamento-1.pdf>
 Package pdftex.def Info: Proyecto_files/figure-latex/frecuenciaDepartamento-1.pdf  used on input line 897.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 [33 <./Proyecto_files/figure-latex/frecuenciaDepartamento-1.pdf>] [34] [35] [36] [37] [38] [39]
-<Proyecto_files/figure-latex/frecuenciaMunicipio-1.pdf, id=396, 469.755pt x 325.215pt>
+<Proyecto_files/figure-latex/frecuenciaMunicipio-1.pdf, id=502, 469.755pt x 325.215pt>
 File: Proyecto_files/figure-latex/frecuenciaMunicipio-1.pdf Graphic file (type pdf)
 <use Proyecto_files/figure-latex/frecuenciaMunicipio-1.pdf>
 Package pdftex.def Info: Proyecto_files/figure-latex/frecuenciaMunicipio-1.pdf  used on input line 1245.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 [40 <./Proyecto_files/figure-latex/frecuenciaMunicipio-1.pdf>]
-<Proyecto_files/figure-latex/frecuenciaEscolaridadHombre-1.pdf, id=409, 469.755pt x 325.215pt>
+<Proyecto_files/figure-latex/frecuenciaEscolaridadHombre-1.pdf, id=514, 469.755pt x 325.215pt>
 File: Proyecto_files/figure-latex/frecuenciaEscolaridadHombre-1.pdf Graphic file (type pdf)
 <use Proyecto_files/figure-latex/frecuenciaEscolaridadHombre-1.pdf>
 Package pdftex.def Info: Proyecto_files/figure-latex/frecuenciaEscolaridadHombre-1.pdf  used on input line 1261.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-<Proyecto_files/figure-latex/frecuenciaEscolaridadMujer-1.pdf, id=410, 469.755pt x 325.215pt>
+<Proyecto_files/figure-latex/frecuenciaEscolaridadMujer-1.pdf, id=515, 469.755pt x 325.215pt>
 File: Proyecto_files/figure-latex/frecuenciaEscolaridadMujer-1.pdf Graphic file (type pdf)
 <use Proyecto_files/figure-latex/frecuenciaEscolaridadMujer-1.pdf>
 Package pdftex.def Info: Proyecto_files/figure-latex/frecuenciaEscolaridadMujer-1.pdf  used on input line 1277.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 [41 <./Proyecto_files/figure-latex/frecuenciaEscolaridadHombre-1.pdf>]
-<Proyecto_files/figure-latex/frecuenciaEtniaHombre-1.pdf, id=424, 469.755pt x 325.215pt>
+<Proyecto_files/figure-latex/frecuenciaEtniaHombre-1.pdf, id=527, 469.755pt x 325.215pt>
 File: Proyecto_files/figure-latex/frecuenciaEtniaHombre-1.pdf Graphic file (type pdf)
 <use Proyecto_files/figure-latex/frecuenciaEtniaHombre-1.pdf>
 Package pdftex.def Info: Proyecto_files/figure-latex/frecuenciaEtniaHombre-1.pdf  used on input line 1291.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 [42 <./Proyecto_files/figure-latex/frecuenciaEscolaridadMujer-1.pdf>]
-<Proyecto_files/figure-latex/frecuenciaEtniaMujer-1.pdf, id=437, 469.755pt x 325.215pt>
+<Proyecto_files/figure-latex/frecuenciaEtniaMujer-1.pdf, id=539, 469.755pt x 325.215pt>
 File: Proyecto_files/figure-latex/frecuenciaEtniaMujer-1.pdf Graphic file (type pdf)
 <use Proyecto_files/figure-latex/frecuenciaEtniaMujer-1.pdf>
 Package pdftex.def Info: Proyecto_files/figure-latex/frecuenciaEtniaMujer-1.pdf  used on input line 1305.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 [43 <./Proyecto_files/figure-latex/frecuenciaEtniaHombre-1.pdf>]
-<Proyecto_files/figure-latex/CorrelacionEdades-1.pdf, id=451, 469.755pt x 325.215pt>
+<Proyecto_files/figure-latex/CorrelacionEdades-1.pdf, id=552, 469.755pt x 325.215pt>
 File: Proyecto_files/figure-latex/CorrelacionEdades-1.pdf Graphic file (type pdf)
 <use Proyecto_files/figure-latex/CorrelacionEdades-1.pdf>
 Package pdftex.def Info: Proyecto_files/figure-latex/CorrelacionEdades-1.pdf  used on input line 1311.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 [44 <./Proyecto_files/figure-latex/frecuenciaEtniaMujer-1.pdf>]
-<Proyecto_files/figure-latex/cantClusters-1.pdf, id=463, 469.755pt x 325.215pt>
+<Proyecto_files/figure-latex/cantClusters-1.pdf, id=564, 469.755pt x 325.215pt>
 File: Proyecto_files/figure-latex/cantClusters-1.pdf Graphic file (type pdf)
 <use Proyecto_files/figure-latex/cantClusters-1.pdf>
-Package pdftex.def Info: Proyecto_files/figure-latex/cantClusters-1.pdf  used on input line 1350.
+Package pdftex.def Info: Proyecto_files/figure-latex/cantClusters-1.pdf  used on input line 1346.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 [45 <./Proyecto_files/figure-latex/CorrelacionEdades-1.pdf>]
-<Proyecto_files/figure-latex/kmeans2-1.pdf, id=481, 469.755pt x 325.215pt>
+<Proyecto_files/figure-latex/kmeans2-1.pdf, id=579, 469.755pt x 325.215pt>
 File: Proyecto_files/figure-latex/kmeans2-1.pdf Graphic file (type pdf)
 <use Proyecto_files/figure-latex/kmeans2-1.pdf>
-Package pdftex.def Info: Proyecto_files/figure-latex/kmeans2-1.pdf  used on input line 1361.
+Package pdftex.def Info: Proyecto_files/figure-latex/kmeans2-1.pdf  used on input line 1357.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 [46 <./Proyecto_files/figure-latex/cantClusters-1.pdf>]
-<Proyecto_files/figure-latex/gaussians-1.pdf, id=492, 469.755pt x 325.215pt>
+<Proyecto_files/figure-latex/gaussians-1.pdf, id=590, 469.755pt x 325.215pt>
 File: Proyecto_files/figure-latex/gaussians-1.pdf Graphic file (type pdf)
 <use Proyecto_files/figure-latex/gaussians-1.pdf>
-Package pdftex.def Info: Proyecto_files/figure-latex/gaussians-1.pdf  used on input line 1366.
+Package pdftex.def Info: Proyecto_files/figure-latex/gaussians-1.pdf  used on input line 1362.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 [47 <./Proyecto_files/figure-latex/kmeans2-1.pdf>]
-<Proyecto_files/figure-latex/fuzzy2-1.pdf, id=506, 469.755pt x 325.215pt>
+<Proyecto_files/figure-latex/fuzzy2-1.pdf, id=602, 469.755pt x 325.215pt>
 File: Proyecto_files/figure-latex/fuzzy2-1.pdf Graphic file (type pdf)
 <use Proyecto_files/figure-latex/fuzzy2-1.pdf>
-Package pdftex.def Info: Proyecto_files/figure-latex/fuzzy2-1.pdf  used on input line 1371.
+Package pdftex.def Info: Proyecto_files/figure-latex/fuzzy2-1.pdf  used on input line 1367.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-<Proyecto_files/figure-latex/fuzzy2-2.pdf, id=507, 469.755pt x 325.215pt>
+<Proyecto_files/figure-latex/fuzzy2-2.pdf, id=603, 469.755pt x 325.215pt>
 File: Proyecto_files/figure-latex/fuzzy2-2.pdf Graphic file (type pdf)
 <use Proyecto_files/figure-latex/fuzzy2-2.pdf>
-Package pdftex.def Info: Proyecto_files/figure-latex/fuzzy2-2.pdf  used on input line 1372.
+Package pdftex.def Info: Proyecto_files/figure-latex/fuzzy2-2.pdf  used on input line 1368.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1371--1373
+Underfull \hbox (badness 10000) in paragraph at lines 1367--1369
 []
  []
 
@@ -758,13 +754,13 @@ See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1469 ...e agrupamiento:cluster jerarquico-1.pdf}
+l.1465 ...e agrupamiento:cluster jerarquico-1.pdf}
                                                    
 Here is how much of TeX's memory you used:
- 12078 strings out of 477985
- 200458 string characters out of 5837248
+ 12147 strings out of 477985
+ 202027 string characters out of 5837248
  1895382 words of memory out of 5000000
- 31937 multiletter control sequences out of 15000+600000
+ 32000 multiletter control sequences out of 15000+600000
  540805 words of font info for 57 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  75i,9n,76p,794b,586s stack positions out of 10000i,1000n,20000p,200000b,200000s

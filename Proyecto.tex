@@ -1343,10 +1343,6 @@ Haga un agrupamiento (clustering) e interprete los resultados.
 ##                                                 NA's   :6027
 \end{verbatim}
 
-\begin{verbatim}
-## Warning: did not converge in 10 iterations
-\end{verbatim}
-
 \includegraphics{Proyecto_files/figure-latex/cantClusters-1.pdf}
 
 \hypertarget{edad-mujeres-y-hombres-en-divorcio-entre-2009-2021-por-medio-de-k-means}{%
@@ -1372,33 +1368,33 @@ k-means}\label{agrupamiento-por-medio-de-k-means}}
 \includegraphics{Proyecto_files/figure-latex/fuzzy2-2.pdf}
 
 \begin{verbatim}
+##      AÑOREG        EDADHOM       EDADMUJ          AÑOOCU          grupo  
+##  Min.   :2015   Min.   :999   Min.   :18.00   Min.   :1.000   Min.   :1  
+##  1st Qu.:2016   1st Qu.:999   1st Qu.:34.00   1st Qu.:2.000   1st Qu.:1  
+##  Median :2018   Median :999   Median :40.00   Median :4.000   Median :1  
+##  Mean   :2018   Mean   :999   Mean   :40.99   Mean   :3.921   Mean   :1  
+##  3rd Qu.:2020   3rd Qu.:999   3rd Qu.:46.75   3rd Qu.:6.000   3rd Qu.:1  
+##  Max.   :2022   Max.   :999   Max.   :76.00   Max.   :7.000   Max.   :1
+\end{verbatim}
+
+\begin{verbatim}
 ##      AÑOREG        EDADHOM         EDADMUJ          AÑOOCU          grupo  
-##  Min.   :2015   Min.   :18.00   Min.   :16.00   Min.   :1.000   Min.   :1  
-##  1st Qu.:2017   1st Qu.:28.00   1st Qu.:26.00   1st Qu.:3.000   1st Qu.:1  
-##  Median :2019   Median :33.00   Median :30.00   Median :5.000   Median :1  
-##  Mean   :2019   Mean   :35.34   Mean   :32.17   Mean   :4.516   Mean   :1  
-##  3rd Qu.:2021   3rd Qu.:40.00   3rd Qu.:37.00   3rd Qu.:7.000   3rd Qu.:1  
-##  Max.   :2022   Max.   :98.00   Max.   :81.00   Max.   :7.000   Max.   :1
+##  Min.   :2015   Min.   :18.00   Min.   :16.00   Min.   :1.000   Min.   :2  
+##  1st Qu.:2017   1st Qu.:28.00   1st Qu.:26.00   1st Qu.:3.000   1st Qu.:2  
+##  Median :2019   Median :33.00   Median :30.00   Median :5.000   Median :2  
+##  Mean   :2019   Mean   :35.34   Mean   :32.17   Mean   :4.516   Mean   :2  
+##  3rd Qu.:2021   3rd Qu.:40.00   3rd Qu.:37.00   3rd Qu.:7.000   3rd Qu.:2  
+##  Max.   :2022   Max.   :98.00   Max.   :81.00   Max.   :7.000   Max.   :2
 \end{verbatim}
 
 \begin{verbatim}
 ##      AÑOREG        EDADHOM       EDADMUJ          AÑOOCU          grupo  
-##  Min.   :2015   Min.   :999   Min.   :18.00   Min.   :1.000   Min.   :2  
-##  1st Qu.:2016   1st Qu.:999   1st Qu.:34.00   1st Qu.:2.000   1st Qu.:2  
-##  Median :2018   Median :999   Median :40.00   Median :4.000   Median :2  
-##  Mean   :2018   Mean   :999   Mean   :40.99   Mean   :3.921   Mean   :2  
-##  3rd Qu.:2020   3rd Qu.:999   3rd Qu.:46.75   3rd Qu.:6.000   3rd Qu.:2  
-##  Max.   :2022   Max.   :999   Max.   :76.00   Max.   :7.000   Max.   :2
-\end{verbatim}
-
-\begin{verbatim}
-##      AÑOREG        EDADHOM         EDADMUJ          AÑOOCU          grupo  
-##  Min.   :2015   Min.   :18.00   Min.   :16.00   Min.   :1.000   Min.   :1  
-##  1st Qu.:2017   1st Qu.:28.00   1st Qu.:26.00   1st Qu.:3.000   1st Qu.:1  
-##  Median :2019   Median :33.00   Median :30.00   Median :5.000   Median :1  
-##  Mean   :2019   Mean   :35.32   Mean   :32.18   Mean   :4.566   Mean   :1  
-##  3rd Qu.:2021   3rd Qu.:40.00   3rd Qu.:37.00   3rd Qu.:7.000   3rd Qu.:1  
-##  Max.   :2021   Max.   :90.00   Max.   :81.00   Max.   :7.000   Max.   :1  
+##  Min.   :2015   Min.   :999   Min.   :18.00   Min.   :1.000   Min.   :1  
+##  1st Qu.:2016   1st Qu.:999   1st Qu.:34.00   1st Qu.:2.000   1st Qu.:1  
+##  Median :2018   Median :999   Median :40.00   Median :4.000   Median :1  
+##  Mean   :2018   Mean   :999   Mean   :40.99   Mean   :3.921   Mean   :1  
+##  3rd Qu.:2020   3rd Qu.:999   3rd Qu.:46.75   3rd Qu.:6.000   3rd Qu.:1  
+##  Max.   :2022   Max.   :999   Max.   :76.00   Max.   :7.000   Max.   :1  
 ##      mxGau  
 ##  Min.   :1  
 ##  1st Qu.:1  
@@ -1409,13 +1405,13 @@ k-means}\label{agrupamiento-por-medio-de-k-means}}
 \end{verbatim}
 
 \begin{verbatim}
-##      AÑOREG        EDADHOM         EDADMUJ          AÑOOCU          grupo      
-##  Min.   :2015   Min.   : 18.0   Min.   :16.00   Min.   :1.000   Min.   :1.000  
-##  1st Qu.:2017   1st Qu.: 30.0   1st Qu.:27.00   1st Qu.:3.000   1st Qu.:1.000  
-##  Median :2019   Median : 36.0   Median :32.00   Median :4.000   Median :1.000  
-##  Mean   :2019   Mean   :239.6   Mean   :34.01   Mean   :4.252   Mean   :1.212  
-##  3rd Qu.:2021   3rd Qu.: 56.0   3rd Qu.:39.00   3rd Qu.:6.000   3rd Qu.:1.000  
-##  Max.   :2022   Max.   :999.0   Max.   :76.00   Max.   :7.000   Max.   :2.000  
+##      AÑOREG        EDADHOM         EDADMUJ          AÑOOCU          grupo  
+##  Min.   :2015   Min.   :18.00   Min.   :16.00   Min.   :1.000   Min.   :2  
+##  1st Qu.:2017   1st Qu.:28.00   1st Qu.:26.00   1st Qu.:3.000   1st Qu.:2  
+##  Median :2019   Median :33.00   Median :30.00   Median :5.000   Median :2  
+##  Mean   :2019   Mean   :35.34   Mean   :32.17   Mean   :4.516   Mean   :2  
+##  3rd Qu.:2021   3rd Qu.:40.00   3rd Qu.:37.00   3rd Qu.:7.000   3rd Qu.:2  
+##  Max.   :2022   Max.   :98.00   Max.   :81.00   Max.   :7.000   Max.   :2  
 ##      mxGau  
 ##  Min.   :2  
 ##  1st Qu.:2  
@@ -1427,36 +1423,36 @@ k-means}\label{agrupamiento-por-medio-de-k-means}}
 
 \begin{verbatim}
 ##      AÑOREG        EDADHOM       EDADMUJ          AÑOOCU          grupo  
-##  Min.   :2015   Min.   :999   Min.   :18.00   Min.   :1.000   Min.   :2  
-##  1st Qu.:2016   1st Qu.:999   1st Qu.:34.00   1st Qu.:2.000   1st Qu.:2  
-##  Median :2018   Median :999   Median :40.00   Median :4.000   Median :2  
-##  Mean   :2018   Mean   :999   Mean   :40.99   Mean   :3.921   Mean   :2  
-##  3rd Qu.:2020   3rd Qu.:999   3rd Qu.:46.75   3rd Qu.:6.000   3rd Qu.:2  
-##  Max.   :2022   Max.   :999   Max.   :76.00   Max.   :7.000   Max.   :2  
+##  Min.   :2015   Min.   :999   Min.   :18.00   Min.   :1.000   Min.   :1  
+##  1st Qu.:2016   1st Qu.:999   1st Qu.:34.00   1st Qu.:2.000   1st Qu.:1  
+##  Median :2018   Median :999   Median :40.00   Median :4.000   Median :1  
+##  Mean   :2018   Mean   :999   Mean   :40.99   Mean   :3.921   Mean   :1  
+##  3rd Qu.:2020   3rd Qu.:999   3rd Qu.:46.75   3rd Qu.:6.000   3rd Qu.:1  
+##  Max.   :2022   Max.   :999   Max.   :76.00   Max.   :7.000   Max.   :1  
 ##      mxGau      FCGrupos
-##  Min.   :2   Min.   :1  
-##  1st Qu.:2   1st Qu.:1  
-##  Median :2   Median :1  
-##  Mean   :2   Mean   :1  
-##  3rd Qu.:2   3rd Qu.:1  
-##  Max.   :2   Max.   :1
+##  Min.   :1   Min.   :1  
+##  1st Qu.:1   1st Qu.:1  
+##  Median :1   Median :1  
+##  Mean   :1   Mean   :1  
+##  3rd Qu.:1   3rd Qu.:1  
+##  Max.   :1   Max.   :1
 \end{verbatim}
 
 \begin{verbatim}
 ##      AÑOREG        EDADHOM         EDADMUJ          AÑOOCU          grupo  
-##  Min.   :2015   Min.   :18.00   Min.   :16.00   Min.   :1.000   Min.   :1  
-##  1st Qu.:2017   1st Qu.:28.00   1st Qu.:26.00   1st Qu.:3.000   1st Qu.:1  
-##  Median :2019   Median :33.00   Median :30.00   Median :5.000   Median :1  
-##  Mean   :2019   Mean   :35.34   Mean   :32.17   Mean   :4.516   Mean   :1  
-##  3rd Qu.:2021   3rd Qu.:40.00   3rd Qu.:37.00   3rd Qu.:7.000   3rd Qu.:1  
-##  Max.   :2022   Max.   :98.00   Max.   :81.00   Max.   :7.000   Max.   :1  
-##      mxGau          FCGrupos
-##  Min.   :1.000   Min.   :2  
-##  1st Qu.:1.000   1st Qu.:2  
-##  Median :1.000   Median :2  
-##  Mean   :1.222   Mean   :2  
-##  3rd Qu.:1.000   3rd Qu.:2  
-##  Max.   :2.000   Max.   :2
+##  Min.   :2015   Min.   :18.00   Min.   :16.00   Min.   :1.000   Min.   :2  
+##  1st Qu.:2017   1st Qu.:28.00   1st Qu.:26.00   1st Qu.:3.000   1st Qu.:2  
+##  Median :2019   Median :33.00   Median :30.00   Median :5.000   Median :2  
+##  Mean   :2019   Mean   :35.34   Mean   :32.17   Mean   :4.516   Mean   :2  
+##  3rd Qu.:2021   3rd Qu.:40.00   3rd Qu.:37.00   3rd Qu.:7.000   3rd Qu.:2  
+##  Max.   :2022   Max.   :98.00   Max.   :81.00   Max.   :7.000   Max.   :2  
+##      mxGau      FCGrupos
+##  Min.   :2   Min.   :2  
+##  1st Qu.:2   1st Qu.:2  
+##  Median :2   Median :2  
+##  Mean   :2   Mean   :2  
+##  3rd Qu.:2   3rd Qu.:2  
+##  Max.   :2   Max.   :2
 \end{verbatim}
 
 \hypertarget{evaluaciuxf3n-de-la-tendencia-de-agrupamiento}{%
